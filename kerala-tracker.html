@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UDF Sarkar Promises — Kerala Promise Tracker</title>
+  <meta name="description"
+    content="Track every promise made by the UDF government in Kerala (2026–2031) — a non-partisan public accountability ledger.">
+  <meta name="theme-color" content="#006B3C">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --green: #006B3C;
+      --green-dark: #004d2a;
+      --green-pale: #e6f4ee;
+      --green-mid: #a8d5bc;
+      --gold: #C8960C;
+      --gold-pale: #fff8e1;
+      --gold-mid: #f5d98b;
+      --red: #C0392B;
+      --ink: #0d1f14;
+      --ink-mid: #1e3a28;
+      --ink-light: #5a7a65;
+      --paper: #FAFDF7;
+      --paper-warm: #f3faf5;
+      --rule: #c2daca;
+      --evad-bg: #fff0f0;
+      --evad-text: #C0392B;
+      --done-bg: #e6f4ee;
+      --done-text: #006B3C;
+      --prog-bg: #fff8e1;
+      --prog-text: #9a6e00;
+      --pend-bg: #f3faf5;
+      --pend-text: #5a7a65;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Crimson Pro', Georgia, serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    /* ===== MASTHEAD ===== */
+    .masthead {
+      background: var(--ink);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .masthead::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(90deg, transparent 0px, transparent 3px,
+          rgba(255, 255, 255, 0.012) 3px, rgba(255, 255, 255, 0.012) 4px);
+      pointer-events: none;
+    }
+
+    .masthead-bar {
+      background: var(--green);
+      padding: 8px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fff;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .masthead-bar .live-tag {
+      background: #fff;
+      color: var(--green-dark);
+      padding: 2px 8px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      border-radius: 2px;
+    }
+
+    .masthead-main {
+      padding: 36px 32px 28px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 32px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .masthead-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .kerala-emblem {
+      width: 56px;
+      height: 56px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      border: 2px solid var(--gold);
+    }
+
+    .party-name {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green-mid);
+      text-align: center;
+    }
+
+    .masthead-text h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 900;
+      line-height: 1.05;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+
+    .masthead-text h1 span {
+      color: var(--gold-mid);
+    }
+
+    .masthead-sub {
+      margin-top: 10px;
+      font-family: 'Crimson Pro', serif;
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.65);
+      font-style: italic;
+    }
+
+    .masthead-meta {
+      margin-top: 16px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .meta-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-mid);
+    }
+
+    .meta-value {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    /* ===== STATS BAND ===== */
+    .stats-band {
+      background: var(--paper-warm);
+      border-bottom: 3px solid var(--green);
+      border-top: 1px solid var(--rule);
+    }
+
+    .stats-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2px;
+    }
+
+    .stat-card {
+      padding: 20px 24px;
+      text-align: center;
+      border-right: 1px solid var(--rule);
+    }
+
+    .stat-card:last-child {
+      border-right: none;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-num.total {
+      color: var(--ink);
+    }
+
+    .stat-num.done {
+      color: var(--green);
+    }
+
+    .stat-num.progress {
+      color: var(--gold);
+    }
+
+    .stat-num.pending {
+      color: var(--ink-light);
+    }
+
+    .stat-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-top: 4px;
+      display: block;
+    }
+
+    .progress-bar-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .progress-bar-track {
+      height: 8px;
+      background: var(--rule);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .progress-bar-done {
+      background: var(--green);
+      height: 100%;
+      transition: width 1s ease;
+    }
+
+    .progress-bar-inprog {
+      background: var(--gold);
+      height: 100%;
+      transition: width 1s ease;
+    }
+
+    .progress-bar-evaded {
+      background: var(--red);
+      height: 100%;
+      transition: width 1s ease;
+    }
+
+    .progress-legend {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+
+    .legend-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+
+    .dot-done {
+      background: var(--green);
+    }
+
+    .dot-progress {
+      background: var(--gold);
+    }
+
+    .dot-evaded {
+      background: var(--red);
+    }
+
+    .dot-pending {
+      background: var(--rule);
+    }
+
+    /* ===== TIMER ===== */
+    .timer-section {
+      background: var(--ink);
+      color: #fff;
+      padding: 20px 32px;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .timer-block {
+      text-align: center;
+    }
+
+    .timer-num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--gold-mid);
+      display: block;
+      line-height: 1;
+    }
+
+    .timer-lbl {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .timer-sep {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      color: var(--green-mid);
+      align-self: flex-start;
+      padding-top: 4px;
+    }
+
+    /* ===== LAYOUT ===== */
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 32px 80px;
+    }
+
+    .how-to-read {
+      background: var(--green-pale);
+      border-left: 4px solid var(--green);
+      padding: 16px 20px;
+      margin-bottom: 40px;
+      border-radius: 0 4px 4px 0;
+      font-size: 15px;
+      color: var(--ink-mid);
+    }
+
+    .how-to-read strong {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--green-dark);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .how-to-read .legend-inline {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 2px 10px;
+      border-radius: 3px;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .badge-done {
+      background: var(--done-bg);
+      color: var(--done-text);
+    }
+
+    .badge-progress {
+      background: var(--prog-bg);
+      color: var(--prog-text);
+    }
+
+    .badge-pending {
+      background: var(--pend-bg);
+      color: var(--pend-text);
+    }
+
+    .badge-evaded {
+      background: var(--evad-bg);
+      color: var(--evad-text);
+    }
+
+    /* ===== CATEGORY SECTIONS ===== */
+    .category {
+      margin-bottom: 48px;
+    }
+
+    .cat-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 20px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .cat-icon {
+      font-size: 28px;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .cat-title-wrap {
+      flex: 1;
+    }
+
+    .cat-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.15;
+    }
+
+    .cat-subtitle {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-top: 3px;
+    }
+
+    .cat-stats {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .cat-toggle {
+      font-family: 'Space Mono', monospace;
+      font-size: 18px;
+      color: var(--ink-light);
+      margin-left: 8px;
+      transition: transform 0.3s;
+    }
+
+    .cat-header.collapsed .cat-toggle {
+      transform: rotate(-90deg);
+    }
+
+    .promise-list {
+      list-style: none;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      max-height: 9999px;
+    }
+
+    .promise-list.collapsed {
+      max-height: 0;
+    }
+
+    .promise-item {
+      display: grid;
+      grid-template-columns: 28px 1fr auto;
+      gap: 12px;
+      align-items: baseline;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--rule);
+      transition: background 0.2s;
+    }
+
+    .promise-item:hover {
+      background: rgba(0, 107, 60, 0.04);
+      padding-left: 4px;
+      margin-left: -4px;
+      padding-right: 4px;
+      margin-right: -4px;
+      border-radius: 4px;
+    }
+
+    .promise-item:last-child {
+      border-bottom: none;
+    }
+
+    .promise-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-light);
+      padding-top: 2px;
+      text-align: right;
+    }
+
+    .promise-text {
+      font-size: 16px;
+      line-height: 1.55;
+      color: var(--ink-mid);
+    }
+
+    .promise-text .highlight {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .promise-item.done .promise-text {
+      text-decoration: line-through;
+      text-decoration-color: var(--green);
+      text-decoration-thickness: 2px;
+      color: var(--ink-light);
+    }
+
+    .promise-item.done .promise-num {
+      color: var(--green);
+    }
+
+    .promise-item.evaded .promise-text {
+      text-decoration: line-through;
+      text-decoration-color: var(--red);
+      text-decoration-thickness: 2px;
+      color: var(--red);
+      opacity: 0.7;
+    }
+
+    .promise-item.evaded .promise-num {
+      color: var(--red);
+    }
+
+    .promise-item.evaded {
+      background: #fff5f5;
+    }
+
+    .promise-item.inprogress .promise-num {
+      color: var(--gold);
+    }
+
+    .note-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 2px;
+      white-space: nowrap;
+      align-self: flex-start;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .note-done {
+      background: var(--done-bg);
+      color: var(--done-text);
+    }
+
+    .note-progress {
+      background: var(--prog-bg);
+      color: var(--prog-text);
+    }
+
+    .note-pending {
+      background: #eee;
+      color: #888;
+    }
+
+    .note-evaded {
+      background: var(--evad-bg);
+      color: var(--evad-text);
+    }
+
+    .update-note {
+      font-family: 'Crimson Pro', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--ink-light);
+      margin-top: 3px;
+      display: block;
+    }
+
+    /* ===== KEY PROMISES SECTION ===== */
+    .key-promises-section {
+      background: var(--ink);
+      color: #fff;
+      padding: 40px 32px;
+      margin-bottom: 40px;
+    }
+
+    .key-promises-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .kp-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--gold-mid);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .kp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .kp-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      padding: 14px 16px;
+      transition: background 0.2s;
+      position: relative;
+    }
+
+    .kp-card:hover {
+      background: rgba(0, 107, 60, 0.15);
+      border-color: rgba(0, 107, 60, 0.4);
+    }
+
+    .kp-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--green-mid);
+      line-height: 1;
+      display: block;
+      opacity: 0.5;
+      position: absolute;
+      top: 10px;
+      right: 12px;
+    }
+
+    .kp-text {
+      font-family: 'Crimson Pro', serif;
+      font-size: 15px;
+      line-height: 1.45;
+      color: rgba(255, 255, 255, 0.8);
+      padding-right: 28px;
+    }
+
+    .kp-card.done {
+      background: rgba(0, 107, 60, 0.15);
+      border-color: rgba(0, 107, 60, 0.35);
+    }
+
+    .kp-card.done .kp-text {
+      text-decoration: line-through;
+      text-decoration-color: var(--green);
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .kp-card .kp-badge {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 2px 6px;
+      border-radius: 2px;
+      margin-top: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* ===== NAV ===== */
+    .cat-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--paper-warm);
+      border-bottom: 2px solid var(--green);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .cat-nav-desktop {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+    }
+
+    .cat-nav-desktop::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cat-nav-desktop a {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      padding: 12px 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+
+    .cat-nav-desktop a:hover {
+      color: var(--green);
+      border-bottom-color: var(--green);
+    }
+
+    .cat-nav-mobile {
+      display: none;
+    }
+
+    .nav-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 13px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      cursor: pointer;
+      gap: 10px;
+    }
+
+    .nav-trigger span {
+      flex: 1;
+      text-align: left;
+    }
+
+    .nav-trigger-arrow {
+      font-size: 16px;
+      color: var(--green);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+
+    .nav-trigger.open .nav-trigger-arrow {
+      transform: rotate(180deg);
+    }
+
+    .nav-dropdown {
+      display: none;
+      background: var(--paper);
+      border-top: 1px solid var(--rule);
+      padding: 12px 16px;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+
+    .nav-dropdown.open {
+      display: grid;
+    }
+
+    .nav-dropdown a {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      text-decoration: none;
+      padding: 9px 12px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.15s, color 0.15s;
+      border: 1px solid transparent;
+    }
+
+    .nav-dropdown a:hover {
+      background: var(--green-pale);
+      color: var(--green-dark);
+      border-color: var(--green-mid);
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: var(--ink);
+      color: rgba(255, 255, 255, 0.5);
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      line-height: 1.8;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 32px 32px;
+    }
+
+    .footer-disclaimer {
+      font-family: 'Crimson Pro', serif;
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.7;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 36px;
+      max-width: 780px;
+    }
+
+    .footer-nonpolitical {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold-mid);
+      margin-bottom: 8px;
+    }
+
+    .footer-section-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.3);
+      margin-bottom: 20px;
+    }
+
+    .footer-rules {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-rule {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 16px;
+      align-items: flex-start;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer-rule:last-child {
+      border-bottom: none;
+    }
+
+    .rule-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--green-mid);
+      opacity: 0.6;
+      line-height: 1.2;
+    }
+
+    .footer-rule strong {
+      display: block;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 5px;
+    }
+
+    .footer-rule div {
+      font-family: 'Crimson Pro', serif;
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.65;
+    }
+
+    .footer-rule a {
+      color: var(--gold-mid);
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 4px;
+    }
+
+    .footer-rule a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-goodfaith,
+    .footer-opensource {
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 32px;
+    }
+
+    .footer-goodfaith p,
+    .footer-opensource p {
+      font-family: 'Crimson Pro', serif;
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.7;
+      max-width: 780px;
+    }
+
+    .footer-goodfaith strong {
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 600;
+    }
+
+    .footer-submit-link,
+    .footer-code-link {
+      display: inline-block;
+      margin-top: 16px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-mid);
+      text-decoration: none;
+      border: 1px solid rgba(200, 150, 12, 0.4);
+      padding: 8px 16px;
+      border-radius: 3px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .footer-submit-link:hover,
+    .footer-code-link:hover {
+      background: rgba(200, 150, 12, 0.1);
+      border-color: var(--gold-mid);
+    }
+
+    .footer-bottom {
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .site-footer a {
+      color: var(--gold-mid);
+      text-decoration: none;
+    }
+
+    .last-updated {
+      color: var(--gold-mid);
+      font-weight: 700;
+    }
+
+    /* ===== FAB ===== */
+    .fab-submit {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 200;
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 14px 22px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(0, 107, 60, 0.45);
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+
+    .fab-submit:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(0, 107, 60, 0.55);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 700px) {
+      .masthead-main {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 24px 20px 20px;
+      }
+
+      .masthead-logo {
+        flex-direction: row;
+        justify-content: flex-start;
+      }
+
+      .stats-inner {
+        padding: 16px 20px;
+      }
+
+      .stat-card {
+        padding: 12px 14px;
+      }
+
+      .stat-num {
+        font-size: 30px;
+      }
+
+      .main-content {
+        padding: 28px 20px 60px;
+      }
+
+      .promise-item {
+        grid-template-columns: 22px 1fr auto;
+        gap: 8px;
+      }
+
+      .kp-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .key-promises-section {
+        padding: 28px 20px;
+      }
+
+      .cat-nav-desktop {
+        display: none;
+      }
+
+      .cat-nav-mobile {
+        display: block;
+      }
+
+      .footer-inner {
+        padding: 36px 20px 28px;
+      }
+
+      .footer-rule {
+        grid-template-columns: 28px 1fr;
+        gap: 10px;
+      }
+
+      .fab-submit {
+        bottom: 18px;
+        right: 16px;
+        padding: 12px 16px;
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .masthead-bar {
+        font-size: 9px;
+        padding: 6px 16px;
+      }
+
+      .kp-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timer-section {
+        gap: 16px;
+      }
+
+      .timer-num {
+        font-size: 26px;
+      }
+    }
+
+    @media print {
+
+      .cat-nav,
+      .timer-section {
+        display: none;
+      }
+
+      .promise-list.collapsed {
+        max-height: 9999px !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="masthead">
+    <div class="masthead-bar">
+      <span><span class="live-tag">LIVE</span> &nbsp; UDF Sarkar Promises — Kerala Accountability Tracker &nbsp;|&nbsp;
+        Assembly Election 2026</span>
+      <span id="today-date">Loading...</span>
+    </div>
+    <div class="masthead-main">
+      <div class="masthead-logo">
+        <div class="kerala-emblem">🌴</div>
+        <span class="party-name">UDF<br>Kerala</span>
+      </div>
+      <div class="masthead-text">
+        <h1>UDF Sarkar<br><span>Promises</span></h1>
+        <p class="masthead-sub">Kerala's public ledger — tracking every commitment made to the people, 2026–2031
+          &nbsp;·&nbsp; Chief Minister V.D. Satheesan</p>
+        <div class="masthead-meta">
+          <div class="meta-item">
+            <span class="meta-label">Chief Minister</span>
+            <span class="meta-value">V.D. Satheesan</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Oath Ceremony</span>
+            <span class="meta-value" id="oath-display">Loading...</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Term Ends</span>
+            <span class="meta-value">May 2031</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Days in Office</span>
+            <span class="meta-value" id="days-in-office">—</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Days Remaining</span>
+            <span class="meta-value" id="days-remaining">—</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="timer-section">
+    <div class="timer-block"><span class="timer-num" id="t-years">—</span><span class="timer-lbl">Years</span></div>
+    <span class="timer-sep">:</span>
+    <div class="timer-block"><span class="timer-num" id="t-months">—</span><span class="timer-lbl">Months</span></div>
+    <span class="timer-sep">:</span>
+    <div class="timer-block"><span class="timer-num" id="t-days">—</span><span class="timer-lbl">Days</span></div>
+    <span class="timer-sep">:</span>
+    <div class="timer-block"><span class="timer-num" id="t-hours">—</span><span class="timer-lbl">Hours</span></div>
+    <span class="timer-sep">:</span>
+    <div class="timer-block"><span class="timer-num" id="t-mins">—</span><span class="timer-lbl">Minutes</span></div>
+    <span class="timer-sep">:</span>
+    <div class="timer-block"><span class="timer-num" id="t-secs">—</span><span class="timer-lbl">Seconds</span></div>
+  </div>
+
+  <div class="stats-band">
+    <div class="stats-inner">
+      <div class="stat-card"><span class="stat-num total" id="stat-total">—</span><span class="stat-label">Total
+          Promises</span></div>
+      <div class="stat-card"><span class="stat-num done" id="stat-done">0</span><span class="stat-label">Fulfilled
+          ✓</span></div>
+      <div class="stat-card"><span class="stat-num progress" id="stat-progress">0</span><span class="stat-label">In
+          Progress ◑</span></div>
+      <div class="stat-card"><span class="stat-num" style="color:var(--red)" id="stat-evaded">0</span><span
+          class="stat-label">Evaded ✗</span></div>
+      <div class="stat-card"><span class="stat-num pending" id="stat-pending">—</span><span class="stat-label">Pending
+          ○</span></div>
+      <div class="stat-card"><span class="stat-num" style="color:var(--green)" id="stat-pct">0%</span><span
+          class="stat-label">Completion Rate</span></div>
+    </div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-track">
+        <div class="progress-bar-done" id="bar-done" style="width:0%"></div>
+        <div class="progress-bar-inprog" id="bar-inprog" style="width:0%"></div>
+        <div class="progress-bar-evaded" id="bar-evaded" style="width:0%"></div>
+      </div>
+      <div class="progress-legend">
+        <span><span class="legend-dot dot-done"></span>Fulfilled</span>
+        <span><span class="legend-dot dot-progress"></span>In Progress</span>
+        <span><span class="legend-dot dot-evaded"></span>Evaded</span>
+        <span><span class="legend-dot dot-pending"></span>Pending</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="cat-nav">
+    <div class="cat-nav-desktop" id="dynamic-nav-desktop">
+    </div>
+    <div class="cat-nav-mobile">
+      <button class="nav-trigger" id="nav-trigger" onclick="toggleMobileNav()" aria-expanded="false">
+        <span>📋 Jump to Section</span>
+        <span class="nav-trigger-arrow">▾</span>
+      </button>
+      <div class="nav-dropdown" id="nav-dropdown">
+      </div>
+    </div>
+  </nav>
+
+  <section class="key-promises-section" id="key-promises">
+    <div class="key-promises-inner">
+      <h2 class="kp-title">⭐ ഇന്ദിര ഗ്യാരൻ്റി (Indira Guarantee)</h2>
+      <div class="kp-grid" id="dynamic-key-promises">
+      </div>
+    </div>
+  </section>
+
+  <main class="main-content">
+    <div class="how-to-read">
+      <strong>How to read this tracker</strong>
+      Each promise is logged verbatim from the official UDF 2026 election manifesto. Status is updated as events unfold
+      over the 5-year term.
+      <div class="legend-inline">
+        <span class="badge badge-done">✓ Fulfilled</span>
+        <span class="badge badge-progress">◑ In Progress</span>
+        <span class="badge badge-evaded">✗ Evaded</span>
+        <span class="badge badge-pending">○ Pending</span>
+      </div>
+    </div>
+
+    <div id="dynamic-categories-container"></div>
+  </main>
+
+  <a class="fab-submit" href="https://tally.so" target="_blank" rel="noopener">✏ Submit an Update</a>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-disclaimer">
+        <span class="footer-nonpolitical">🗒️ This is not a political website.</span>
+        It is an independent public notepad maintained by ordinary Keralites — so we don't forget what was promised to
+        us. We hold no affiliation with any political party. We track facts, not opinions.
+      </div>
+
+      <div class="footer-goodfaith">
+        <h3 class="footer-section-title">A Note on Good Faith</h3>
+        <p>This tracker was created with genuine good faith — we believe in holding elected governments accountable to
+          the promises they made publicly, and we want this government to succeed in fulfilling them for the people of
+          Kerala. We are not here to root for failure.</p>
+        <p style="margin-top:12px">We are ordinary people, not journalists. There is a real possibility that we miss
+          news, fail to update things quickly, or are unaware of developments on the ground. <strong>That is exactly why
+            we need your help.</strong> If you know that something has been done, started, or abandoned — please tell
+          us.</p>
+        <a class="footer-submit-link" href="https://tally.so" target="_blank" rel="noopener">✏ Submit information or a
+          correction →</a>
+      </div>
+
+      <div class="footer-methodology">
+        <h3 class="footer-section-title">Methodology &amp; Standards</h3>
+        <div class="footer-rules">
+          <div class="footer-rule">
+            <span class="rule-num">01</span>
+            <div><strong>Source of Promises</strong>All promises sourced from the official UDF 2026 election manifesto.
+            </div>
+          </div>
+          <div class="footer-rule">
+            <span class="rule-num">02</span>
+            <div><strong>Source Hierarchy</strong>(1) Official Kerala Government Orders (GOs) — gold standard. (2) State
+              cabinet press release. (3) Verified reports in The Hindu, Indian Express, Mathrubhumi, or Manorama.</div>
+          </div>
+          <div class="footer-rule">
+            <span class="rule-num">03</span>
+            <div><strong>How "In Progress" is marked</strong>A credible news report or cabinet statement confirming the
+              government has initiated action.</div>
+          </div>
+          <div class="footer-rule">
+            <span class="rule-num">04</span>
+            <div><strong>How "Fulfilled" is marked</strong>Requires a GO, enacted bill, or verified on-ground evidence
+              that beneficiaries are receiving the benefit.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>UDF Sarkar Promises &nbsp;·&nbsp; Kerala Assembly Election 2026</span>
+        <span class="last-updated" id="last-updated-footer">Last updated: —</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+
+  <script>
+    // ── UPDATE THESE TWO DATES WHEN GOVERNMENT TAKES OATH ──
+    const OATH_DATE = new Date('2026-05-18T11:00:00+05:30');
+    const TERM_END = new Date('2031-05-18T11:00:00+05:30');
+    // ───────────────────────────────────────────────────────
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    // 1. RUN THE COUNTDOWN AND DATE LABELS
+    function updateTimer() {
+      const now = new Date();
+      document.getElementById('today-date').textContent = now.toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+      const daysIn = Math.max(1, Math.floor((now - OATH_DATE) / 86400000) + 1);
+      document.getElementById('days-in-office').textContent = daysIn + ' days';
+
+      const daysLeft = Math.max(0, Math.floor((TERM_END - now) / 86400000));
+      document.getElementById('days-remaining').textContent = daysLeft.toLocaleString('en-IN') + ' days';
+      document.getElementById('oath-display').textContent = OATH_DATE.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+
+      const diff = TERM_END - now;
+      if (diff > 0) {
+        const yrs = Math.floor(diff / (365.25 * 24 * 3600 * 1000));
+        const rem1 = diff % (365.25 * 24 * 3600 * 1000);
+        const mths = Math.floor(rem1 / (30.44 * 24 * 3600 * 1000));
+        const rem2 = rem1 % (30.44 * 24 * 3600 * 1000);
+        const days = Math.floor(rem2 / (24 * 3600 * 1000));
+        const rem3 = rem2 % (24 * 3600 * 1000);
+        const hrs = Math.floor(rem3 / (3600 * 1000));
+        const mins = Math.floor((rem3 % (3600 * 1000)) / 60000);
+        const secs = Math.floor((rem3 % 60000) / 1000);
+
+        document.getElementById('t-years').textContent = pad(yrs);
+        document.getElementById('t-months').textContent = pad(mths);
+        document.getElementById('t-days').textContent = pad(days);
+        document.getElementById('t-hours').textContent = pad(hrs);
+        document.getElementById('t-mins').textContent = pad(mins);
+        document.getElementById('t-secs').textContent = pad(secs);
+      }
+    }
+
+    // 2. READ THE DATA AND BUILD THE HTML
+    function loadPromises() {
+      if (typeof promisesData === 'undefined') {
+        alert("Error: data.js file not found or loaded incorrectly.");
+        return;
+      }
+
+      const keyPromisesContainer = document.getElementById('dynamic-key-promises');
+      const categoriesContainer = document.getElementById('dynamic-categories-container');
+      const desktopNav = document.getElementById('dynamic-nav-desktop');
+      const mobileNav = document.getElementById('nav-dropdown');
+
+      // Clear containers
+      keyPromisesContainer.innerHTML = '';
+      categoriesContainer.innerHTML = '';
+
+      // Set up standard nav links for the Key Promises section
+      desktopNav.innerHTML = '<a href="#key-promises">⭐ ഇന്ദിര ഗ്യാരൻ്റി</a>';
+      mobileNav.innerHTML = '<a href="#key-promises" onclick="closeMobileNav()">⭐ ഇന്ദിര ഗ്യാരൻ്റി</a>';
+
+      let keyPromiseCount = 1;
+      const categoriesMap = {};
+
+      // Group the data
+      promisesData.forEach(promise => {
+        // Build Key Promises visually
+        if (promise.category === 'ഇന്ദിര ഗ്യാരൻ്റി (Indira Guarantee)') {
+          let badgeClass = 'badge-pending';
+          let cardClass = 'pending';
+
+          if (promise.status === 'Fulfilled') { badgeClass = 'badge-done'; cardClass = 'done'; }
+          else if (promise.status === 'In Progress') { badgeClass = 'badge-progress'; cardClass = 'inprogress'; }
+          else if (promise.status === 'Evaded') { badgeClass = 'badge-evaded'; cardClass = 'evaded'; }
+
+          keyPromisesContainer.innerHTML += `
+          <div class="kp-card ${cardClass}">
+            <span class="kp-num">${keyPromiseCount++}</span>
+            <p class="kp-text">${promise.promise}</p>
+            <span class="kp-badge ${badgeClass}">${promise.status}</span>
+          </div>
+        `;
+        }
+
+        // Group into Categories dictionary
+        if (!categoriesMap[promise.category]) {
+          categoriesMap[promise.category] = [];
+        }
+        categoriesMap[promise.category].push(promise);
+      });
+
+      // Build Category Sections and Navigation
+      Object.keys(categoriesMap).forEach((categoryName, index) => {
+        const categoryPromises = categoriesMap[categoryName];
+        const sectionId = 'cat-' + index;
+
+        // Inject Navigation Links
+        desktopNav.innerHTML += `<a href="#${sectionId}">📌 ${categoryName}</a>`;
+        mobileNav.innerHTML += `<a href="#${sectionId}" onclick="closeMobileNav()">📌 ${categoryName}</a>`;
+
+        let listHTML = '';
+
+        categoryPromises.forEach((p, i) => {
+          let itemClass = 'pending';
+          let noteClass = 'note-pending';
+
+          if (p.status === 'Fulfilled') { itemClass = 'done'; noteClass = 'note-done'; }
+          else if (p.status === 'In Progress') { itemClass = 'inprogress'; noteClass = 'note-progress'; }
+          else if (p.status === 'Evaded') { itemClass = 'evaded'; noteClass = 'note-evaded'; }
+
+          // Compile Update Notes
+          let updatesHTML = '';
+          if (p.updates && p.updates.length > 0) {
+            p.updates.forEach(update => {
+              updatesHTML += `<span class="update-note">${update.date}: ${update.description}</span>`;
+            });
+          }
+
+          listHTML += `
+          <li class="promise-item ${itemClass}">
+            <span class="promise-num">${i + 1}</span>
+            <span class="promise-text">${p.promise} ${updatesHTML}</span>
+            <span class="note-tag ${noteClass}">${p.status}</span>
+          </li>
+        `;
+        });
+
+        // Inject the whole section
+        categoriesContainer.innerHTML += `
+        <section class="category" id="${sectionId}">
+          <div class="cat-header" onclick="toggleCat(this)">
+            <span class="cat-icon">📌</span>
+            <div class="cat-title-wrap">
+              <h2 class="cat-title">${categoryName}</h2>
+            </div>
+            <div class="cat-stats"><span class="badge badge-pending">${categoryPromises.length} Promises</span></div>
+            <span class="cat-toggle">▾</span>
+          </div>
+          <ul class="promise-list">
+            ${listHTML}
+          </ul>
+        </section>
+      `;
+      });
+
+      // 3. Update the global stats dashboard now that the DOM is populated
+      updateStats();
+    }
+
+    // 3. CALCULATE PROGRESS METRICS
+    function updateStats() {
+      // Only query .promise-item so we don't double count the Key Promises
+      const all = document.querySelectorAll('.promise-item');
+      const done = document.querySelectorAll('.promise-item.done');
+      const inprog = document.querySelectorAll('.promise-item.inprogress');
+      const evaded = document.querySelectorAll('.promise-item.evaded');
+
+      const total = all.length;
+      const pending = total - done.length - inprog.length - evaded.length;
+      const pct = total > 0 ? Math.round((done.length / total) * 100) : 0;
+
+      document.getElementById('stat-total').textContent = total;
+      document.getElementById('stat-done').textContent = done.length;
+      document.getElementById('stat-progress').textContent = inprog.length;
+      document.getElementById('stat-evaded').textContent = evaded.length;
+      document.getElementById('stat-pending').textContent = pending;
+      document.getElementById('stat-pct').textContent = pct + '%';
+
+      document.getElementById('bar-done').style.width = (total > 0 ? (done.length / total * 100) : 0) + '%';
+      document.getElementById('bar-inprog').style.width = (total > 0 ? (inprog.length / total * 100) : 0) + '%';
+      document.getElementById('bar-evaded').style.width = (total > 0 ? (evaded.length / total * 100) : 0) + '%';
+
+      // Update section badges
+      document.querySelectorAll('.category').forEach(cat => {
+        const items = cat.querySelectorAll('.promise-item');
+        const catDone = cat.querySelectorAll('.promise-item.done');
+        const catProg = cat.querySelectorAll('.promise-item.inprogress');
+        const catEvad = cat.querySelectorAll('.promise-item.evaded');
+        const badge = cat.querySelector('.cat-stats .badge');
+
+        if (!badge) return;
+        if (catDone.length === items.length && items.length > 0) {
+          badge.className = 'badge badge-done';
+          badge.textContent = '✓ All ' + items.length + ' done';
+        } else if (catDone.length > 0 || catProg.length > 0 || catEvad.length > 0) {
+          badge.className = 'badge badge-progress';
+          badge.textContent = catDone.length + '/' + items.length + ' done';
+        } else {
+          badge.className = 'badge badge-pending';
+          badge.textContent = items.length + ' Promises';
+        }
+      });
+
+      document.getElementById('last-updated-footer').textContent = 'Last updated: ' + new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+
+    // 4. MOBILE NAVIGATION LOGIC
+    function toggleMobileNav() {
+      const trigger = document.getElementById('nav-trigger');
+      const dropdown = document.getElementById('nav-dropdown');
+      const isOpen = dropdown.classList.contains('open');
+      dropdown.classList.toggle('open', !isOpen);
+      trigger.classList.toggle('open', !isOpen);
+      trigger.setAttribute('aria-expanded', String(!isOpen));
+    }
+
+    function closeMobileNav() {
+      const trigger = document.getElementById('nav-trigger');
+      const dropdown = document.getElementById('nav-dropdown');
+      dropdown.classList.remove('open');
+      trigger.classList.remove('open');
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+
+    document.addEventListener('click', function (e) {
+      const nav = document.querySelector('.cat-nav-mobile');
+      if (nav && !nav.contains(e.target)) closeMobileNav();
+    });
+
+    function toggleCat(header) {
+      header.classList.toggle('collapsed');
+      const list = header.nextElementSibling;
+      if (list && list.classList.contains('promise-list')) {
+        list.classList.toggle('collapsed');
+      }
+    }
+
+    // 5. START EVERYTHING
+    document.addEventListener('DOMContentLoaded', () => {
+      loadPromises();
+      updateTimer();
+      setInterval(updateTimer, 1000);
+    });
+  </script>
+</body>
+
+</html>

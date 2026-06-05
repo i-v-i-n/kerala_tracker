@@ -1,0 +1,802 @@
+[
+    {
+        "id": "UDF-001",
+        "category": "ഇന്ദിര ഗ്യാരൻ്റി (Indira Guarantee)",
+        "promise": "സ്ത്രീകൾക്ക് കെ.എസ്.ആർ.ടി.സി ബസ്സുകളിൽ സൗജന്യ യാത്ര[cite: 1999].",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-002",
+        "category": "ഇന്ദിര ഗ്യാരൻ്റി (Indira Guarantee)",
+        "promise": "കോളേജ് വിദ്യാർത്ഥിനികൾക്ക് ₹1,000 പ്രതിമാസ ധനസഹായം[cite: 2000].",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-003",
+        "category": "ഇന്ദിര ഗ്യാരൻ്റി (Indira Guarantee)",
+        "promise": "ക്ഷേമ പെൻഷനുകൾ ₹3,000 ആയി വർദ്ധിപ്പിക്കും[cite: 2001].",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-004",
+        "category": "ഇന്ദിര ഗ്യാരൻ്റി (Indira Guarantee)",
+        "promise": "എല്ലാ കുടുംബങ്ങൾക്കും 25,00,000 രൂപവരെയുള്ള സൗജന്യ \"ഉമ്മൻചാണ്ടി ആരോഗ്യ ഇൻഷുറൻസ്\" പരിരക്ഷ[cite: 2002].",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-005",
+        "category": "ഇന്ദിര ഗ്യാരൻ്റി (Indira Guarantee)",
+        "promise": "യുവജനങ്ങൾക്ക് ബിസിനസ് ആരംഭിക്കുന്നതിന് 5 ലക്ഷം രൂപ വരെ പലിശരഹിത വായ്‌പ[cite: 2003].",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-006",
+        "category": "ഇന്ദിര ഗ്യാരൻ്റി (Indira Guarantee)",
+        "promise": "മുതിർന്ന പൗരന്മാരുടെ ക്ഷേമത്തിനായി പ്രത്യേക വകുപ്പ്[cite: 2004].",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-007",
+        "category": "സ്വ‌പ്ന പദ്ധതികൾ (Dream Projects)",
+        "promise": "മിഷൻ സമുദ്ര: അഞ്ചുവർഷത്തിനുള്ളിൽ കേരളത്തെ ലോക മാരിടൈം ഭൂപടത്തിൽ ശക്തമായ സാന്നിധ്യമായി ഉയർത്തുന്ന സമഗ്ര പദ്ധതി[cite: 2009].",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-008",
+        "category": "സ്വ‌പ്ന പദ്ധതികൾ (Dream Projects)",
+        "promise": "വ്യോമയാന വികസനം: കൊച്ചി വിമാനത്താവളത്തിൽ രണ്ടാം ഘട്ട റൺവേ നിർമ്മാണം, എയർപോർട്ട് സാമ്പത്തിക മേഖലകൾ, കണ്ണൂർ വിമാനത്താവള വികസനം[cite: 2012].",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-009",
+        "category": "സ്വ‌പ്ന പദ്ധതികൾ (Dream Projects)",
+        "promise": "എം.എസ്.എം.ഇ സംരംഭങ്ങൾ: 100 കോടിയിലധികം വാർഷിക വരുമാന ശേഷിയുള്ള ആയിരത്തോളം എം.എസ്.എം.ഇ സംരംഭങ്ങൾ സംസ്ഥാനമൊട്ടാകെ ആരംഭിക്കും[cite: 2014].",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-010",
+        "category": "സ്വ‌പ്ന പദ്ധതികൾ (Dream Projects)",
+        "promise": "ജോബ് വാച്ച് ടവർ: മാറുന്ന ജോലിയുടെ സ്വഭാവം പഠിക്കാൻ വിദഗ്‌ധർ അടങ്ങുന്ന 'ജോബ് വാച്ച് ടവർ' രൂപീകരിക്കും[cite: 2017].",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-011",
+        "category": "സ്വ‌പ്ന പദ്ധതികൾ (Dream Projects)",
+        "promise": "വയനാട് ട്രൈബൽ യൂണിവേഴ്‌സിറ്റി: ആദിവാസി സമൂഹത്തിൻ്റെ വിദ്യാഭ്യാസ പുരോഗതിയെ ലക്ഷ്യമാക്കി ആധുനിക സൗകര്യങ്ങളോടുകൂടിയ ട്രൈബൽ യൂണിവേഴ്സ‌ിറ്റി സ്ഥാപിക്കും[cite: 2019].",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-012",
+        "category": "സാമൂഹിക സുരക്ഷയും തുല്യതയും (Social Security)",
+        "promise": "സാമൂഹിക സുരക്ഷാ പെൻഷൻ അവകാശമാക്കാൻ നിയമം നടപ്പിലാക്കും. ശമ്പള കമ്മീഷൻ മാതൃകയിൽ ക്ഷേമ പെൻഷൻ കമ്മീഷൻ രൂപീകരിക്കും[cite: 2023, 2024].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-013",
+        "category": "സാമൂഹിക സുരക്ഷയും തുല്യതയും (Social Security)",
+        "promise": "ഏറ്റവും ദാരിദ്ര്യം അനുഭവിക്കുന്നവരെ കണ്ടെത്തി 'നവ ആശ്രയ' പദ്ധതി ആരംഭിക്കും[cite: 2025].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-014",
+        "category": "സാമൂഹിക സുരക്ഷയും തുല്യതയും (Social Security)",
+        "promise": "വിശപ്പു രഹിത കേരളം ഉറപ്പാക്കാൻ കുറഞ്ഞ നിരക്കിൽ ഭക്ഷണം നൽകുന്ന ഇന്ദിര കാന്റീൻ ആരംഭിക്കും[cite: 2028].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-015",
+        "category": "സാമൂഹിക സുരക്ഷയും തുല്യതയും (Social Security)",
+        "promise": "ട്രാൻസ്‌ജെൻഡർ വിഭാഗത്തിന് വേണ്ടി ആരോഗ്യ ഇൻഷുറൻസ്, പി.എസ്.സി സംവരണം, പാർപ്പിട പദ്ധതി അടക്കമുള്ള പ്രത്യേക വികസന പാക്കേജ് നടപ്പിലാക്കും[cite: 2036].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-016",
+        "category": "ക്ഷേമ പദ്ധതികൾ (Welfare Schemes)",
+        "promise": "കാരുണ്യ, ശ്രുതി തരംഗം, സുകൃതം തുടങ്ങിയ പദ്ധതികൾ സംയോജിപ്പിച്ച് ഉമ്മൻ ചാണ്ടി കാരുണ്യ പദ്ധതി എന്ന പേരിൽ നടപ്പിലാക്കും[cite: 2046].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-017",
+        "category": "ക്ഷേമ പദ്ധതികൾ (Welfare Schemes)",
+        "promise": "ആശാ വർക്കർമാരുടെ ദിവസ വേതനം കുറഞ്ഞത് 700 രൂപയാക്കും[cite: 2051].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-018",
+        "category": "ക്ഷേമ പദ്ധതികൾ (Welfare Schemes)",
+        "promise": "സംസ്ഥാനത്ത് ബി.പി.എൽ കുടുംബങ്ങളിലെ രോഗികൾക്കുള്ള ഡയാലിസിസ് സൗജന്യമാക്കും[cite: 2058].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-019",
+        "category": "ക്ഷേമ പദ്ധതികൾ (Welfare Schemes)",
+        "promise": "അപകടത്തിൽപ്പെടുന്നവരെ ആശുപത്രികൾ എത്തിക്കുന്ന സുമനസുകൾക്ക് പ്രോത്സാഹനം നൽകുന്ന \"ഗുഡ് സമരിറ്റൻ\" നിയമം പൂർണതോതിൽ നടപ്പിലാക്കും[cite: 2080].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-020",
+        "category": "ആരോഗ്യ പരിപാലനം (Healthcare)",
+        "promise": "സർക്കാർ ആശുപത്രികളിൽ എത്തുന്ന രോഗികൾക്ക് ബെഡ് അവരുടെ അവകാശമാക്കും[cite: 2133].",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-021",
+        "category": "ആരോഗ്യ പരിപാലനം (Healthcare)",
+        "promise": "ഏതു അടിയന്തര രോഗത്തിനും “ഗോൾഡൻ അവറിൽ” ചികിത്സ ഉറപ്പാക്കാൻ എല്ലാ ജില്ലയിലും 24X7 പ്രവർത്തിക്കുന്ന സ്പെഷാലിറ്റിയുള്ള സർക്കാർ ആശുപത്രികൾ ഉറപ്പാക്കും[cite: 2148].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-022",
+        "category": "ആരോഗ്യ പരിപാലനം (Healthcare)",
+        "promise": "സ്ത്രീകളുടെയും കുട്ടികളുടെയും ആരോഗ്യ സംരക്ഷണത്തിനായി ശക്തമായ സംവിധാനങ്ങൾ ഏർപ്പെടുത്തും. ഇതിന്റെ ഭാഗമായി “ഷീ ഹോസ്‌പിറ്റൽസ്\" ആരംഭിക്കും[cite: 2170].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-023",
+        "category": "ആരോഗ്യ പരിപാലനം (Healthcare)",
+        "promise": "സംസ്ഥാനത്ത് നഴ്‌സിംഗ് യൂണിവേഴ്‌സിറ്റി സ്ഥാപിക്കും[cite: 2220].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-024",
+        "category": "വിദ്യാഭ്യാസം (Education)",
+        "promise": "കൃത്രിമ ബുദ്ധിയും നവ സാങ്കേതികവിദ്യകളുടെ സാധ്യതകളെ ഉപയോഗപ്പെടുത്താൻ കേരള എ.ഐ. ഗവേഷണ സ്ഥാപനം (KAIR) സ്ഥാപിക്കും[cite: 2262].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-025",
+        "category": "വിദ്യാഭ്യാസം (Education)",
+        "promise": "കേരളത്തിലെ ക്യാമ്പസുകളിൽ റാഗിങ്ങ് തടയാൻ 'Sidharthan Student Distress App' ഉം, 'Sidharthan Anti ragging & Student Welfare Act' നടപ്പാക്കും[cite: 2274].",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-026",
+        "category": "വിദ്യാഭ്യാസം (Education)",
+        "promise": "സർവകലാശാലകളിലെ താത്കാലിക അധ്യാപക നിയമനത്തിലെ അഴിമതിയും സ്വജന പക്ഷപാതവും ഒഴിവാക്കാൻ അധ്യാപക നിയമനത്തിനായി സ്വതന്ത്ര കമ്മീഷൻ സ്ഥാപിക്കും[cite: 2282].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-027",
+        "category": "വിദ്യാഭ്യാസം (Education)",
+        "promise": "NEET, JEE, PSC, ബാങ്കിംഗ്, UPSC തുടങ്ങിയ മത്സര പരീക്ഷകൾക്ക് പൊതുവിദ്യാഭ്യാസ സംവിധാനത്തിനകത്ത് തന്നെ ഗുണമേന്മ യുള്ള തയാറെടുപ്പ് ഉറപ്പാക്കും[cite: 2354].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-028",
+        "category": "വ്യവസായം (Industry)",
+        "promise": "ചെറുതോ വലുതോ ആയ ഏതൊരു വ്യവസായവും കേരളത്തിൽ ആരംഭിക്കാൻ ആവശ്യമായ എല്ലാ അനുമതികളും നേടിക്കൊടുക്കാൻ ഡിപ്പാർട്ട്മെന്റ് ഓഫ് ഇൻവെസ്റ്റ്മെൻ്റ് രൂപീകരിക്കും[cite: 2408].",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-029",
+        "category": "വ്യവസായം (Industry)",
+        "promise": "സംസ്ഥാനത്ത് ലോകോത്തര എ.ഐ. ഡാറ്റ സെൻ്റർ ആരംഭിക്കാൻ നടപടികൾ സ്വീകരിക്കും[cite: 2411].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-030",
+        "category": "തൊഴിൽ (Employment)",
+        "promise": "പി.എസ്.സി. നിയമനങ്ങളിലെ ഒഴിവുകൾ റിപ്പോർട്ട് ചെയ്യുന്നതിനും അപ്പോയിന്റ്മെന്റ് ഉപദേശ മെമ്മോകൾ സൃഷ്ടിക്കുന്നതിനുമുള്ള ഓട്ടോമേറ്റഡ് സംവിധാനം നടപ്പിലാക്കും[cite: 2449].",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-031",
+        "category": "തൊഴിൽ (Employment)",
+        "promise": "ഐ.ടി അടക്കമുള്ള തൊഴിൽ മേഖലയിലെ അമിത ചൂഷണം ഒഴിവാക്കാൻ ഓഫീസ് സമയം കഴിഞ്ഞ ശേഷം ഔദ്യോഗിക കാര്യങ്ങളിൽ നിന്നും വിട്ടു നിൽക്കാൻ തൊഴിലാളികൾക്ക് അവകാശം നൽകുന്ന Right to disconnect നടപ്പിലാക്കും[cite: 2479].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-032",
+        "category": "സ്ത്രീശാക്തീകരണവും സുരക്ഷയും (Women Empowerment)",
+        "promise": "അസംഘടിത മേഖലയിൽ ജോലി ചെയ്യുന്ന സ്ത്രീകൾക്കും ആറു മാസം പ്രസവാവധി അനുവദിക്കും[cite: 2527].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-033",
+        "category": "സ്ത്രീശാക്തീകരണവും സുരക്ഷയും (Women Empowerment)",
+        "promise": "കേരളത്തിലെ പ്രധാന റൂട്ടുകളിൽ സ്ത്രീകൾക്ക് മാത്രമായി രാത്രികാല പിങ്ക് ബസുകൾ ആരംഭിക്കും[cite: 2551].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-034",
+        "category": "ഭവന നിർമ്മാണം (Housing)",
+        "promise": "അഞ്ചു വർഷംകൊണ്ട് അഞ്ചു ലക്ഷം പേർക്ക് വീട് നൽകും. ഭവന പദ്ധതികളുടെ തുക വർധിപ്പിക്കും[cite: 2573, 2574].",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-035",
+        "category": "കൃഷി (Agriculture)",
+        "promise": "റബ്ബറിന് 300 രൂപ താങ്ങുവിലയാക്കും. സിയാൽ മോഡൽ റബ്ബർ കമ്പനി ആരംഭിക്കും[cite: 2581].",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-036",
+        "category": "കൃഷി (Agriculture)",
+        "promise": "നെല്ലിന് 35 രൂപാ സംഭരണ വിലയും രൊക്കം പണം ബാങ്ക് അക്കൗണ്ടിലേക്ക് നൽകലിനും സ്ഥിരം സംവിധാനം രൂപീകരിക്കും[cite: 2593].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-037",
+        "category": "വന്യ ജീവി ആക്രമണം (Wildlife Conflict)",
+        "promise": "വന്യജീവി ആക്രമണത്തിൽ ജീവൻ നഷ്ടപ്പെടുന്നവരുടെ കുടുംബങ്ങൾക്ക് സർക്കാർ നൽകിവരുന്ന തുക 50% വർധിപ്പിക്കും[cite: 2709].",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-038",
+        "category": "മൽസ്യബന്ധനം (Fisheries)",
+        "promise": "മത്സ്യത്തൊഴിലാളികൾക്ക് ഡീസൽ, പെട്രോൾ സബ്‌സിഡി ലഭ്യമാക്കും. മണ്ണെണ്ണ സബ്‌സിഡി വർധിപ്പിക്കാൻ നടപടി സ്വീകരിക്കും[cite: 2735].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-039",
+        "category": "ഭരണ നിർവ്വഹണം (Governance)",
+        "promise": "അഴിമതി ഇല്ലാതാക്കുന്നതിന്റെ ഭാഗമായി State Vigilance Commission രൂപീകരിക്കും[cite: 2866].",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-040",
+        "category": "മദ്യ നയം (Liquor Policy)",
+        "promise": "ലഹരിമുക്ത കേരളമെന്ന മഹത്തായ ആശയം നടപ്പാക്കുന്നതിന്റെ ഭാഗമായി സ്റ്റാറ്റ്യൂട്ടറി അധികാരമുള്ള ഒരു പ്രത്യേക അതോറിറ്റിക്ക് രൂപം നൽകും[cite: 2865, 3634].",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-041",
+        "category": "മലയോര കർഷക ക്ഷേമം (Hill Farmer Welfare)",
+        "promise": "കുടിയേറ്റ കർഷകർ നേരിടുന്ന എല്ലാ പ്രശ്‌നങ്ങളും സമയബന്ധിതമായി പരിഹരിക്കും. കൈയേറ്റങ്ങൾക്കെതിരെ മുഖം നോക്കാതെ നടപടി സ്വീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-042",
+        "category": "മലയോര കർഷക ക്ഷേമം (Hill Farmer Welfare)",
+        "promise": "ഭൂപ്രശ്‌നങ്ങളുമായി ബന്ധപ്പെട്ട് വർഷങ്ങളായി വിവിധ കോടതികളിൽ നിലനിൽക്കുന്ന കേസുകൾ കർഷകതാൽപര്യം സംരക്ഷിച്ച് സമയബന്ധിതമായി തീർക്കാൻ നടപടി സ്വീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-043",
+        "category": "മലയോര കർഷക ക്ഷേമം (Hill Farmer Welfare)",
+        "promise": "നിസാരകാരണങ്ങൾ ചൂണ്ടിക്കാട്ടി കർഷകരെ ഇറക്കിവിടാനുള്ള ശ്രമങ്ങൾക്ക് ശാശ്വത പരിഹാരമായി നിലവിലുള്ള എല്ലാ ഭൂനിയമങ്ങളും ഭേദഗതി ചെയ്ത് ഉപാധിരഹിത പട്ടയം എന്ന ആശയം നടപ്പിലാക്കും.",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-044",
+        "category": "മലയോര കർഷക ക്ഷേമം (Hill Farmer Welfare)",
+        "promise": "കാർഡമം റൂൾ ഉൾപ്പടെയുള്ള ഭൂ നിയമങ്ങൾ കാലോചിതമായി ഭേദഗതി ചെയ്യും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-045",
+        "category": "മലയോര കർഷക ക്ഷേമം (Hill Farmer Welfare)",
+        "promise": "പഴയ റിസർവ് വനത്തിൻ്റെ വിജ്ഞാപനത്തിൽ ഉൾപ്പെട്ട പട്ടയകൈവശ ഭൂമികളും സർക്കാർ ഏറ്റെടുത്തിട്ടുള്ള ഭൂമിയും ഡീ-റിസർവ് ചെയ്ത് ഒഴിവാക്കാൻ നടപടി സ്വീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-046",
+        "category": "മലയോര കർഷക ക്ഷേമം (Hill Farmer Welfare)",
+        "promise": "2023-ൽ സർക്കാർ കൊണ്ട് വന്ന ഭൂപതിവ് ഭേദഗതി നിയമവും 2025-ൽ നിർമ്മിച്ച അതിന്റെ ചട്ടവും റദ്ദാക്കി സമഗ്രമായ നിയമ നിർമ്മാണം നടത്തും.",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-047",
+        "category": "മലയോര കർഷക ക്ഷേമം (Hill Farmer Welfare)",
+        "promise": "ഇടുക്കി ജില്ലയിൽ വാണിജ്യ നിർമ്മാണങ്ങൾക്കുള്ള നിരോധനം പിൻവലിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-048",
+        "category": "മലയോര കർഷക ക്ഷേമം (Hill Farmer Welfare)",
+        "promise": "ബഫർ സോൺ, ഡാം സേഫ്റ്റി, ഇ.എഫ്.എൽ പ്രഖ്യാപനങ്ങൾ പുനഃപരിശോധിക്കുകയും അന്യായം പരിഹരിക്കാൻ നടപടികൾ സ്വീകരിക്കുകയും ചെയ്യും.",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-049",
+        "category": "പട്ടികജാതി പട്ടികവർഗ്ഗ ക്ഷേമം (SC/ST Welfare)",
+        "promise": "ആദിവാസി സമൂഹത്തിൻ്റെ വനാവകാശം സംരക്ഷിക്കുന്നതിനു യു.പി.എ സർക്കാർ 2006 ൽ പ്രാബല്യത്തിൽ വരുത്തിയ വനാവകാശ നിയമം നടപ്പിലാക്കും.",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-050",
+        "category": "പട്ടികജാതി പട്ടികവർഗ്ഗ ക്ഷേമം (SC/ST Welfare)",
+        "promise": "പട്ടികജാതി/പട്ടികവർഗ്ഗ വിഭാഗങ്ങൾക്ക് ഭവന പദ്ധതി പുനരാരംഭിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-051",
+        "category": "പട്ടികജാതി പട്ടികവർഗ്ഗ ക്ഷേമം (SC/ST Welfare)",
+        "promise": "അന്യസംസ്ഥാനങ്ങളിൽ അംഗീകൃത സ്ഥാപനങ്ങളിൽ പഠിക്കുന്ന എസ്.സി./എസ്.ടി. വിദ്യാർത്ഥികൾക്ക് വിദ്യാഭ്യാസ ആനുകൂല്യങ്ങൾ അനുവദിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-052",
+        "category": "പട്ടികജാതി പട്ടികവർഗ്ഗ ക്ഷേമം (SC/ST Welfare)",
+        "promise": "ഭൂരഹിതരായ പട്ടികജാതി/ പട്ടികവർഗ്ഗ വിഭാഗങ്ങൾക്ക് പട്ടികജാതി/പട്ടികവർഗ്ഗ വകുപ്പ് ഭൂമി വാങ്ങി നൽകുന്ന പദ്ധതി പുനഃസ്ഥാപിക്കും.",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-053",
+        "category": "പട്ടികജാതി പട്ടികവർഗ്ഗ ക്ഷേമം (SC/ST Welfare)",
+        "promise": "രാജമാണിക്യം കമ്മീഷൻ കണ്ടെത്തിയ 5.5 ലക്ഷത്തോളം ഏക്കർ അനധികൃത ഭൂമി ഏറ്റെടുത്ത് ദളിത്, ആദിവാസികൾക്കും മറ്റു അർഹരായ ഭൂരഹിതർക്കും വിതരണം ചെയ്യാൻ നിയമ നിർമാണം നടത്തും.",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-054",
+        "category": "പട്ടികജാതി പട്ടികവർഗ്ഗ ക്ഷേമം (SC/ST Welfare)",
+        "promise": "എല്ലാ ജില്ലകളിലും എസ്.സി./എസ്.ടി വിഭാഗങ്ങൾക്ക് മോഡൽ റെസിഡൻഷ്യൽ സ്‌കൂളുകൾ ആരംഭിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-055",
+        "category": "പട്ടികജാതി പട്ടികവർഗ്ഗ ക്ഷേമം (SC/ST Welfare)",
+        "promise": "എസ്.സി/എസ്.ടി വിഭാഗങ്ങൾക്ക് പ്രാതിനിധ്യം കുറഞ്ഞ മേഖലകളിൽ സ്പെഷ്യൽ റിക്രൂട്ട്മെന്റ് ആരംഭിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-056",
+        "category": "പട്ടികജാതി പട്ടികവർഗ്ഗ ക്ഷേമം (SC/ST Welfare)",
+        "promise": "ദേവസ്വം ബോർഡ് നിയമനങ്ങളിൽ എസ്.സി./എസ്.ടി. വിഭാഗങ്ങൾക്കുള്ള സംവരണം ജനസംഖ്യാനുപാതികമായി നൽകാൻ നടപടികൾ സ്വീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-057",
+        "category": "പട്ടികജാതി പട്ടികവർഗ്ഗ ക്ഷേമം (SC/ST Welfare)",
+        "promise": "അതി പിന്നാക്ക ജനവിഭാഗങ്ങളുടെ ക്ഷേമത്തിനായി മോസ്റ്റ് ബാക്ക്‌വേർഡ് കമ്മ്യൂണിറ്റി ഡെവലപ്‌മെൻ്റ് കോർപ്പറേഷൻ രൂപീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-058",
+        "category": "ഭിന്നശേഷി ക്ഷേമം (Disability Welfare)",
+        "promise": "ഭിന്നശേഷി ക്ഷേമത്തിനായി ഭിന്നശേഷി വകുപ്പ് രൂപീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-059",
+        "category": "ഭിന്നശേഷി ക്ഷേമം (Disability Welfare)",
+        "promise": "രോഗികളായ കടുത്ത വൈകല്യങ്ങളുള്ളവരുടെയും (80%ന് മുകളിൽ), കിടപ്പ് രോഗികളുടെയും ലോൺ എഴുതി തള്ളാനുള്ള നടപടികൾ സ്വീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-060",
+        "category": "ഭിന്നശേഷി ക്ഷേമം (Disability Welfare)",
+        "promise": "ഭിന്നശേഷിക്കാർക്ക് പെൻഷൻ ഏർപ്പെടുത്തുമ്പോൾ വാർഷിക വരുമാന പരിധി ഒഴിവാക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-061",
+        "category": "ഭിന്നശേഷി ക്ഷേമം (Disability Welfare)",
+        "promise": "പി.എസ്.സി പരീക്ഷയിൽ ഭിന്നശേഷിക്കാർക്ക് നൽകിയിരുന്ന ഗ്രേസ് മാർക്ക് പുനഃസ്ഥാപിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-062",
+        "category": "ഭിന്നശേഷി ക്ഷേമം (Disability Welfare)",
+        "promise": "സർക്കാർ, കോർപറേഷൻ, ബോർഡുകളിൽ 4% ഭിന്നശേഷി സംവരണം (PWD Act 2016) ഉറപ്പുവരുത്തും.",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-063",
+        "category": "ഭിന്നശേഷി ക്ഷേമം (Disability Welfare)",
+        "promise": "ഇന്ത്യൻ സൈൻ ലാംഗ്വേജിനെ ഭാഷയായി ഉൾപ്പെടുത്താൻ നടപടികൾ സ്വീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-064",
+        "category": "ഭിന്നശേഷി ക്ഷേമം (Disability Welfare)",
+        "promise": "സംസ്ഥാനത്ത് ഭിന്നശേഷിക്കാരുടെ ഉന്നമനത്തിനായി കേരള കമ്മീഷൻ ഫോർ ഡിസെബിലിറ്റി ഇൻക്ലൂഷൻ സ്ഥാപിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-065",
+        "category": "ഭിന്നശേഷി ക്ഷേമം (Disability Welfare)",
+        "promise": "National Institute of Speech and Hearing (NISH) നെ ഭിന്നശേഷി സർവകലാശാലയായും റീഹാബിലിറ്റേഷൻ സെന്റർ ആക്കിയും ഉയർത്തും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-066",
+        "category": "ഭിന്നശേഷി ക്ഷേമം (Disability Welfare)",
+        "promise": "പൊതുഇടങ്ങളിൽ റാമ്പ് അടക്കമുള്ള സൗകര്യങ്ങൾ ഒരുക്കി ഭിന്നശേഷിക്കാരുടെ വീൽ ചെയർ യാത്ര തടസ രഹിതമാക്കാൻ കർശന നടപടി സ്വീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-067",
+        "category": "സ്റ്റാർട്ടപ്പുകൾ (Startups)",
+        "promise": "പുതുമയുള്ള സംരംഭങ്ങൾ ആരംഭിക്കാൻ സംരംഭകർക്ക് സർക്കാർ പിന്തുണയോടെ വെഞ്ചർ ഫണ്ടും കുറഞ്ഞ പലിശയുള്ള സ്റ്റാർട്ടപ്പ് വായ്‌പകളും ലഭ്യമാക്കും.",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-068",
+        "category": "സ്റ്റാർട്ടപ്പുകൾ (Startups)",
+        "promise": "നിർമ്മിത ബുദ്ധി, റോബോട്ടിക്സസ്‌, സൈബർ സെക്യൂരിറ്റി അടങ്ങുന്ന വിവിധ മേഖലകളിൽ സ്റ്റാർട്ടപ്പ് ക്ലസ്റ്ററുകൾ ആരംഭിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-069",
+        "category": "സ്റ്റാർട്ടപ്പുകൾ (Startups)",
+        "promise": "കേരള സ്റ്റാർട്ടപ്പുകളിൽ നിക്ഷേപം പ്രോത്സാഹിപ്പിക്കുന്നതിന് പ്രൊഫഷണലുകളുടെ നേതൃത്വത്തിലുള്ള എൻആർഐ നിക്ഷേപ ഫണ്ട് രൂപീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-070",
+        "category": "സ്റ്റാർട്ടപ്പുകൾ (Startups)",
+        "promise": "സ്റ്റാർട്ടപ്പുകൾക്കുള്ള ആവശ്യമായ എല്ലാ വിവരങ്ങളും പിന്തുണയും ലഭിക്കുന്നതിന് സിംഗിൾ പോയിൻ്റ് ഓഫ് കോൺടാക്റ്റ് ഏർപ്പെടുത്തും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-071",
+        "category": "സ്റ്റാർട്ടപ്പുകൾ (Startups)",
+        "promise": "കേരളത്തിലെ സ്റ്റാർട്ടപ്പുകൾക്ക് യൂണികോൺ ആയി ഉയരുന്നതിനു സർക്കാർ സഹായവും പ്രോത്സാഹനവും ലഭ്യമാക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-072",
+        "category": "സ്റ്റാർട്ടപ്പുകൾ (Startups)",
+        "promise": "ഉമ്മൻ ചാണ്ടി സർക്കാർ ആരംഭിച്ച സ്റ്റാർട്ടപ്പ് മിഷൻ്റെ പ്രവർത്തനം കാര്യക്ഷമാക്കികൊണ്ട് ദേശീയതലത്തിൽ മികച്ചതാക്കാൻ നടപടികൾ സ്വീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-073",
+        "category": "വിവരസാങ്കേതികത (Information Technology)",
+        "promise": "ക്ലൗഡ് സാങ്കേതികവിദ്യ, ആർട്ടിഫിഷ്യൽ ഇന്റലിജൻസ്, റോബോട്ടിക്സ് തുടങ്ങിയ സാങ്കേതിക വിദ്യകളിൽ കഴിവുകൾ വികസിപ്പിക്കുന്നതിന് കേരളം ഊന്നൽ നൽകും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-074",
+        "category": "വിവരസാങ്കേതികത (Information Technology)",
+        "promise": "നൂതന സാങ്കേതിക വിദ്യയിലൂടെ സംസ്ഥാനത്തിന്റെ സമഗ്ര വികസനം സാധ്യമാക്കാൻ നിർമ്മിത ബുദ്ധി (എ.ഐ) വകുപ്പ് രൂപീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-075",
+        "category": "വിവരസാങ്കേതികത (Information Technology)",
+        "promise": "വിദൂര ജോലി സുഗമമാക്കുന്നതിന് കേരളത്തിലുടനീളം അതിവേഗ ബ്രോഡ് ബാൻഡ് കണക്റ്റിവിറ്റി നടപ്പിലാക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-076",
+        "category": "വിവരസാങ്കേതികത (Information Technology)",
+        "promise": "ഐ.ടി സ്ഥാപനങ്ങളുടെ പ്രവർത്തനം സുഗമമാക്കുന്നതിന് കേരളത്തിൽ പുതിയ ഐ.ടി നിയമം കൊണ്ടുവരും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-077",
+        "category": "വിവരസാങ്കേതികത (Information Technology)",
+        "promise": "ടെക്നോപാർക്ക്, ഇൻഫോപാർക്ക് കമ്പനികളിൽ 100% വളർച്ച കൈവരിക്കാനുള്ള നടപടികൾ സ്വീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-078",
+        "category": "വിവരസാങ്കേതികത (Information Technology)",
+        "promise": "സാറ്റലൈറ്റ് ടെക്നോളജിക്ക് ഊന്നൽ നൽകി റിസർച്ച് അടക്കമുള്ള സ്ഥാപനങ്ങൾ ആരംഭിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-079",
+        "category": "കെ.എസ്.ആർ.ടി.സി (KSRTC)",
+        "promise": "ഐ.ഒ.ടി, ഡിജിറ്റൽ, എ.ഐ. സാങ്കേതികവിദ്യകൾ ഉപയോഗിച്ച് കെ.എസ്.ആർ.ടി.സിയെ നവീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-080",
+        "category": "കെ.എസ്.ആർ.ടി.സി (KSRTC)",
+        "promise": "കെ.എസ്.ആർ.ടി.സി ശമ്പളവും പെൻഷനും മുടങ്ങാതെ നൽകുന്നതിന് നടപടികൾ സ്വീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-081",
+        "category": "കെ.എസ്.ആർ.ടി.സി (KSRTC)",
+        "promise": "കെ.എസ്.ആർ.ടി.സി പെൻഷൻകാരുടെ പെൻഷൻ വിതരണം സർക്കാർ ഏറ്റെടുക്കും. പെൻഷൻ പരിഷ്‌കരണവും നടപ്പിലാക്കും.",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-082",
+        "category": "കെ.എസ്.ആർ.ടി.സി (KSRTC)",
+        "promise": "കെ.എസ്.ആർ.ടി.സി ജീവനക്കാരുടെ ഡി.എ കുടിശ്ശിക അനുവദിച്ച് ശമ്പളപരിഷ്കരണം നടപ്പിലാക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-083",
+        "category": "കെ.എസ്.ആർ.ടി.സി (KSRTC)",
+        "promise": "കെ.എസ്.ആർ.ടി.സിയിൽ പുതിയ സ്ഥിര നിയമനങ്ങൾ നടത്തും; എൽ ഡി എഫ് സർക്കാർ നടപ്പിലാക്കിയ തൊഴിലാളി വിരുദ്ധ പരിഷ്‌കാരങ്ങൾ പുനഃപരിശോധിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-084",
+        "category": "ശബരിമല വികസനം, ദേവസ്വം (Sabarimala & Devaswom)",
+        "promise": "ശബരിമല സ്വർണക്കൊള്ള കേസിലെ പ്രതികൾ എത്ര ഉന്നതരായാലും അവരെയെല്ലാം നിയമത്തിന് മുന്നിൽ കൊണ്ടു വന്ന് ശിക്ഷ ഉറപ്പാക്കും.",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-085",
+        "category": "ശബരിമല വികസനം, ദേവസ്വം (Sabarimala & Devaswom)",
+        "promise": "മലബാർ ദേവസ്വം ബോർഡിൻ്റെ പ്രവർത്തനങ്ങൾ കാര്യക്ഷമാക്കുന്നതിനും, കൂടുതൽ അധികാരം നൽകുന്നതിനും മറ്റു ബോർഡുകൾക്ക് സമാനമാക്കാനും നിയമ നടപടി സ്വീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-086",
+        "category": "ശബരിമല വികസനം, ദേവസ്വം (Sabarimala & Devaswom)",
+        "promise": "ശബരിമലയിൽ റോപ് വേ നിർമ്മാണം ത്വരിതപ്പെടുത്താൻ നടപടികൾ സ്വീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-087",
+        "category": "ശബരിമല വികസനം, ദേവസ്വം (Sabarimala & Devaswom)",
+        "promise": "ശബരിമലയിൽ സ്പോട്ട് ബുക്കിങ്ങിൻ്റെ പേരിൽ ഭക്തർക്കുണ്ടാകുന്ന ബുദ്ധിമുട്ടുകൾക്ക് ശാശ്വത പരിഹാരം കണ്ടെത്തും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-088",
+        "category": "ശബരിമല വികസനം, ദേവസ്വം (Sabarimala & Devaswom)",
+        "promise": "ദേശീയപാത വികസനവുമായി ബന്ധപ്പെട്ട് ഏറ്റെടുത്തിട്ടുള്ള ദേവസ്വം ഭൂമികളുടെ നഷ്ടപരിഹാരത്തുക ലഭ്യമാക്കുവാൻ നടപടി സ്വീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-089",
+        "category": "പ്രവാസി ക്ഷേമം (Pravasi Welfare)",
+        "promise": "വിദേശത്തുനിന്നും തൊഴിൽ നഷ്ടപ്പെട്ട് തിരിച്ചുവരുന്ന പ്രവാസികളുടെ ക്ഷേമത്തിനായി സമഗ്രമായ ഒരു പുനരധിവാസ പദ്ധതി തയ്യാറാക്കി നടപ്പിലാക്കും.",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-090",
+        "category": "പ്രവാസി ക്ഷേമം (Pravasi Welfare)",
+        "promise": "ത്രിതല തദ്ദേശ സ്വയംഭരണ സംവിധാനത്തിൽ പ്രവാസി സ്റ്റാൻഡിങ് കമ്മിറ്റി രൂപീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-091",
+        "category": "പ്രവാസി ക്ഷേമം (Pravasi Welfare)",
+        "promise": "വിദേശ രാജ്യങ്ങളിൽ നിന്നും തിരിച്ചെത്തുന്ന പ്രവാസികൾക്ക് ആരോഗ്യ ഇൻഷുറൻസ് പദ്ധതി നടപ്പിലാക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-092",
+        "category": "പ്രവാസി ക്ഷേമം (Pravasi Welfare)",
+        "promise": "പ്രവാസി പെൻഷൻ വർദ്ധിപ്പിക്കാൻ നടപടി സ്വീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-093",
+        "category": "പ്രവാസി ക്ഷേമം (Pravasi Welfare)",
+        "promise": "പ്രവാസി ക്ഷേമനിധിയിൽ അംഗമാകാനുള്ള പ്രായ പരിധി എടുത്തു മാറ്റാനും 60 വയസ്സ് കഴിഞ്ഞവർക്ക് അനുകൂല്യങ്ങൾ നൽകാനും നടപടി സ്വീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-094",
+        "category": "പ്രവാസി ക്ഷേമം (Pravasi Welfare)",
+        "promise": "പ്രവാസികൾക്കായി കുടുംബശ്രീ മോഡൽ ഫിനാൻസ് സംവിധാനങ്ങളും ചെറുകിട തൊഴിൽ സംരഭങ്ങളും തുടങ്ങുന്ന പ്രവാസി അയൽക്കുട്ടങ്ങൾ നടപ്പിലാക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-095",
+        "category": "പ്രവാസി ക്ഷേമം (Pravasi Welfare)",
+        "promise": "നോർക്ക കെയർ ആരോഗ്യ ഇൻഷ്വറൻസ് പദ്ധതിയിൽ തിരിച്ചു വന്ന പ്രവാസികളെയും, മാതാപിതാക്കളെയും ഉൾപ്പെടുത്താൻ നടപടി സ്വീകരിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-096",
+        "category": "പ്രവാസി ക്ഷേമം (Pravasi Welfare)",
+        "promise": "പ്രവാസികളുടെ സ്വത്തുക്കളുടെ സംരക്ഷണത്തിനും ഭൂമി കയ്യേറ്റം തടയുന്നതിനും വേണ്ടി ഒരു പ്രത്യേക പ്രവാസി ട്രൈബ്യൂണൽ സ്ഥാപിക്കും.",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-097",
+        "category": "മാലിന്യ നിർമ്മാർജ്ജനം / തെരുവ് നായ (Waste Management & Stray Dogs)",
+        "promise": "മാലിന്യനിർമ്മാർജ്ജനത്തിന് വികസിത രാജ്യങ്ങൾ ഉപയോഗിക്കുന്ന പ്ലാസ്‌മാ ടെക്നോളജി അടക്കമുള്ള ലോകോത്തര ആധുനിക സാങ്കേതിക വിദ്യ ഉപയോഗപ്പെടുത്തും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-098",
+        "category": "മാലിന്യ നിർമ്മാർജ്ജനം / തെരുവ് നായ (Waste Management & Stray Dogs)",
+        "promise": "മാംസ മാലിന്യനിർമ്മാർജനത്തോടൊപ്പം എബിസി (അനിമൽ ബർത്ത് കൺട്രോൾ) കർശനമായി നടപ്പിലാക്കും.",
+        "status": "Pending",
+        "is_key_promise": true,
+        "updates": []
+    },
+    {
+        "id": "UDF-099",
+        "category": "മാലിന്യ നിർമ്മാർജ്ജനം / തെരുവ് നായ (Waste Management & Stray Dogs)",
+        "promise": "ഓരോ നിയമസഭാ മണ്ഡലത്തിലും ഡോഗ് ഷെൽട്ടറുകൾ സ്ഥാപിക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    },
+    {
+        "id": "UDF-100",
+        "category": "മാലിന്യ നിർമ്മാർജ്ജനം / തെരുവ് നായ (Waste Management & Stray Dogs)",
+        "promise": "പ്ലാസ്റ്റിക് മാലിന്യത്തിന് ഉൽപ്പാദക ഉത്തരവാദിത്വം (EPR) കർശനമായി നടപ്പിലാക്കും.",
+        "status": "Pending",
+        "is_key_promise": false,
+        "updates": []
+    }
+]
