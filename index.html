@@ -1296,7 +1296,6 @@
     </div>
   </footer>
 
-  <script src="data.js"></script>
 
   <script>
     // ── UPDATE THESE TWO DATES WHEN GOVERNMENT TAKES OATH ──
@@ -1342,7 +1341,7 @@
     // 2. READ THE DATA AND BUILD THE HTML
     function loadPromises() {
       if (typeof promisesData === 'undefined') {
-        alert("Error: data.js file not found or loaded incorrectly.");
+        alert("Error: promises.json file not found or loaded incorrectly.");
         return;
       }
 
@@ -1531,6 +1530,42 @@
       updateTimer();
       setInterval(updateTimer, 1000);
     });
+  </script>
+  <script>
+    async function loadTrackerData() {
+      try {
+        // 1. Fetch the static promises list
+        const promisesResponse = await fetch('promises.json');
+        if (!promisesResponse.ok) throw new Error("Could not find promises.json");
+        const promisesList = await promisesResponse.json();
+
+        // 2. Fetch the live updates (We use a secondary try/catch because updates.json might be empty or missing initially)
+        let liveUpdates = {};
+        try {
+          const updatesResponse = await fetch('updates.json');
+          if (updatesResponse.ok) {
+            liveUpdates = await updatesResponse.json();
+          }
+        } catch (e) {
+          console.log("No updates.json found yet, defaulting to zero updates.");
+        }
+
+        // 3. Update the UI
+        console.log("Successfully loaded data:", promisesList.length, "promises found.");
+
+        // ---> PUT YOUR HTML RENDERING LOGIC HERE <---
+        // Example: updateCounters(promisesList, liveUpdates);
+        // Example: renderCards(promisesList, liveUpdates);
+
+      } catch (error) {
+        console.error("Error loading the JSON databases:", error);
+        // Replaces your old popup with a more accurate one if things break
+        alert("Error loading tracking data. Please check the console.");
+      }
+    }
+
+    // Trigger the function when the page loads
+    document.addEventListener("DOMContentLoaded", loadTrackerData);
   </script>
 </body>
 
