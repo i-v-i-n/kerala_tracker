@@ -1295,9 +1295,7 @@
       </div>
     </div>
   </footer>
-
-
-  <script>
+<script>
     // ── UPDATE THESE TWO DATES WHEN GOVERNMENT TAKES OATH ──
     const OATH_DATE = new Date('2026-05-18T11:00:00+05:30');
     const TERM_END = new Date('2031-05-18T11:00:00+05:30');
@@ -1351,12 +1349,12 @@
       const mobileNav = document.getElementById('nav-dropdown');
 
       // Clear containers
-      keyPromisesContainer.innerHTML = '';
-      categoriesContainer.innerHTML = '';
+      if(keyPromisesContainer) keyPromisesContainer.innerHTML = '';
+      if(categoriesContainer) categoriesContainer.innerHTML = '';
 
       // Set up standard nav links for the Key Promises section
-      desktopNav.innerHTML = '<a href="#key-promises">⭐ ഇന്ദിര ഗ്യാരൻ്റി</a>';
-      mobileNav.innerHTML = '<a href="#key-promises" onclick="closeMobileNav()">⭐ ഇന്ദിര ഗ്യാരൻ്റി</a>';
+      if(desktopNav) desktopNav.innerHTML = '<a href="#key-promises">⭐ ഇന്ദിര ഗ്യാരൻ്റി</a>';
+      if(mobileNav) mobileNav.innerHTML = '<a href="#key-promises" onclick="closeMobileNav()">⭐ ഇന്ദിര ഗ്യാരൻ്റി</a>';
 
       let keyPromiseCount = 1;
       const categoriesMap = {};
@@ -1364,7 +1362,7 @@
       // Group the data
       promisesData.forEach(promise => {
         // Build Key Promises visually
-        if (promise.category === 'ഇന്ദിര ഗ്യാരൻ്റി (Indira Guarantee)') {
+        if (promise.category === 'ഇന്ദിര ഗ്യാരൻ്റി (Indira Guarantee)' && keyPromisesContainer) {
           let badgeClass = 'badge-pending';
           let cardClass = 'pending';
 
@@ -1394,8 +1392,8 @@
         const sectionId = 'cat-' + index;
 
         // Inject Navigation Links
-        desktopNav.innerHTML += `<a href="#${sectionId}">📌 ${categoryName}</a>`;
-        mobileNav.innerHTML += `<a href="#${sectionId}" onclick="closeMobileNav()">📌 ${categoryName}</a>`;
+        if(desktopNav) desktopNav.innerHTML += `<a href="#${sectionId}">📌 ${categoryName}</a>`;
+        if(mobileNav) mobileNav.innerHTML += `<a href="#${sectionId}" onclick="closeMobileNav()">📌 ${categoryName}</a>`;
 
         let listHTML = '';
 
@@ -1411,7 +1409,7 @@
           let updatesHTML = '';
           if (p.updates && p.updates.length > 0) {
             p.updates.forEach(update => {
-              updatesHTML += `<span class="update-note">${update.date}: ${update.description}</span>`;
+              updatesHTML += `<span class="update-note" style="display:block; margin-top:5px; font-size:0.9em;"><strong>${update.date}:</strong> ${update.description}</span>`;
             });
           }
 
@@ -1425,21 +1423,23 @@
         });
 
         // Inject the whole section
-        categoriesContainer.innerHTML += `
-        <section class="category" id="${sectionId}">
-          <div class="cat-header" onclick="toggleCat(this)">
-            <span class="cat-icon">📌</span>
-            <div class="cat-title-wrap">
-              <h2 class="cat-title">${categoryName}</h2>
-            </div>
-            <div class="cat-stats"><span class="badge badge-pending">${categoryPromises.length} Promises</span></div>
-            <span class="cat-toggle">▾</span>
-          </div>
-          <ul class="promise-list">
-            ${listHTML}
-          </ul>
-        </section>
-      `;
+        if(categoriesContainer) {
+            categoriesContainer.innerHTML += `
+            <section class="category" id="${sectionId}">
+              <div class="cat-header" onclick="toggleCat(this)">
+                <span class="cat-icon">📌</span>
+                <div class="cat-title-wrap">
+                  <h2 class="cat-title">${categoryName}</h2>
+                </div>
+                <div class="cat-stats"><span class="badge badge-pending">${categoryPromises.length} Promises</span></div>
+                <span class="cat-toggle">▾</span>
+              </div>
+              <ul class="promise-list">
+                ${listHTML}
+              </ul>
+            </section>
+          `;
+        }
       });
 
       // 3. Update the global stats dashboard now that the DOM is populated
@@ -1448,7 +1448,6 @@
 
     // 3. CALCULATE PROGRESS METRICS
     function updateStats() {
-      // Only query .promise-item so we don't double count the Key Promises
       const all = document.querySelectorAll('.promise-item');
       const done = document.querySelectorAll('.promise-item.done');
       const inprog = document.querySelectorAll('.promise-item.inprogress');
@@ -1458,16 +1457,16 @@
       const pending = total - done.length - inprog.length - evaded.length;
       const pct = total > 0 ? Math.round((done.length / total) * 100) : 0;
 
-      document.getElementById('stat-total').textContent = total;
-      document.getElementById('stat-done').textContent = done.length;
-      document.getElementById('stat-progress').textContent = inprog.length;
-      document.getElementById('stat-evaded').textContent = evaded.length;
-      document.getElementById('stat-pending').textContent = pending;
-      document.getElementById('stat-pct').textContent = pct + '%';
+      if(document.getElementById('stat-total')) document.getElementById('stat-total').textContent = total;
+      if(document.getElementById('stat-done')) document.getElementById('stat-done').textContent = done.length;
+      if(document.getElementById('stat-progress')) document.getElementById('stat-progress').textContent = inprog.length;
+      if(document.getElementById('stat-evaded')) document.getElementById('stat-evaded').textContent = evaded.length;
+      if(document.getElementById('stat-pending')) document.getElementById('stat-pending').textContent = pending;
+      if(document.getElementById('stat-pct')) document.getElementById('stat-pct').textContent = pct + '%';
 
-      document.getElementById('bar-done').style.width = (total > 0 ? (done.length / total * 100) : 0) + '%';
-      document.getElementById('bar-inprog').style.width = (total > 0 ? (inprog.length / total * 100) : 0) + '%';
-      document.getElementById('bar-evaded').style.width = (total > 0 ? (evaded.length / total * 100) : 0) + '%';
+      if(document.getElementById('bar-done')) document.getElementById('bar-done').style.width = (total > 0 ? (done.length / total * 100) : 0) + '%';
+      if(document.getElementById('bar-inprog')) document.getElementById('bar-inprog').style.width = (total > 0 ? (inprog.length / total * 100) : 0) + '%';
+      if(document.getElementById('bar-evaded')) document.getElementById('bar-evaded').style.width = (total > 0 ? (evaded.length / total * 100) : 0) + '%';
 
       // Update section badges
       document.querySelectorAll('.category').forEach(cat => {
@@ -1490,13 +1489,17 @@
         }
       });
 
-      document.getElementById('last-updated-footer').textContent = 'Last updated: ' + new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+      if(document.getElementById('last-updated-footer')) {
+          document.getElementById('last-updated-footer').textContent = 'Last updated: ' + new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+      }
     }
 
     // 4. MOBILE NAVIGATION LOGIC
     function toggleMobileNav() {
       const trigger = document.getElementById('nav-trigger');
       const dropdown = document.getElementById('nav-dropdown');
+      if(!trigger || !dropdown) return;
+      
       const isOpen = dropdown.classList.contains('open');
       dropdown.classList.toggle('open', !isOpen);
       trigger.classList.toggle('open', !isOpen);
@@ -1506,6 +1509,8 @@
     function closeMobileNav() {
       const trigger = document.getElementById('nav-trigger');
       const dropdown = document.getElementById('nav-dropdown');
+      if(!trigger || !dropdown) return;
+      
       dropdown.classList.remove('open');
       trigger.classList.remove('open');
       trigger.setAttribute('aria-expanded', 'false');
@@ -1524,19 +1529,16 @@
       }
     }
 
-    // 5. START EVERYTHING
-    document.addEventListener('DOMContentLoaded', () => {
-      loadPromises();
-      updateTimer();
-      setInterval(updateTimer, 1000);
-    });
-  </script>
-  <script>
+    // 5. THE SINGLE STARTING GUN: FETCH DATA THEN BUILD UI
     async function initApp() {
         try {
-            console.log("📡 Fetching databases...");
-            
-            // 1. Fetch the data
+            console.log("📡 Initializing App...");
+
+            // Start the countdown timer immediately
+            updateTimer();
+            setInterval(updateTimer, 1000);
+
+            // Fetch the databases
             const pRes = await fetch('./promises.json');
             const promisesList = await pRes.json();
 
@@ -1548,29 +1550,37 @@
                 console.log("No live updates found."); 
             }
 
-            // 2. Set the global variable EXACTLY as your old code expects
+            // MERGE: Map the live updates into the format your original UI expects
+            promisesList.forEach(p => {
+                if (liveUpdates[p.id]) {
+                    // Force the status to 'In Progress' if an update is found and it was pending
+                    if (p.status === 'Pending') p.status = 'In Progress';
+                    
+                    p.updates = liveUpdates[p.id].map(update => ({
+                        date: update.date,
+                        // Wrap the URL in an HTML anchor tag so it's clickable in the UI
+                        description: `<a href="${update.url}" target="_blank" style="color: inherit; text-decoration: underline;">[${update.source_type}] ${update.title}</a>`
+                    }));
+                }
+            });
+
+            // Hand the merged data over to your global variable
             window.promisesData = promisesList;
-            
-            // Also save updates to the window so your UI can use it later
-            window.liveUpdatesData = liveUpdates; 
 
             console.log("✅ Data ready! Triggering UI build...");
-
-            // 3. NOW run your original rendering function!
-            if (typeof loadPromises === "function") {
-                loadPromises();
-            } else {
-                console.error("Could not find loadPromises function!");
-            }
+            loadPromises();
 
         } catch (error) {
             console.error("🛑 Critical Data Error:", error);
+            alert("System initialization failed. Could not load tracker data.");
         }
     }
 
-    // Trigger the fetch when the page loads
+    // Boot everything up exactly once when the DOM is ready
     document.addEventListener("DOMContentLoaded", initApp);
 </script>
+
+ 
 </body>
 
 </html>
