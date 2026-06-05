@@ -1535,7 +1535,7 @@
     async function loadTrackerData() {
       try {
         // 1. Fetch the static promises list
-        const promisesResponse = await fetch('promises.json');
+        const promisesResponse = await fetch('./promises.json');
         if (!promisesResponse.ok) throw new Error("Could not find promises.json");
         const promisesList = await promisesResponse.json();
 
