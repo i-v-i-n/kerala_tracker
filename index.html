@@ -1558,10 +1558,10 @@
         // Example: renderCards(promisesList, liveUpdates);
 
       } catch (error) {
-        console.error("Error loading the JSON databases:", error);
-        // Replaces your old popup with a more accurate one if things break
-        alert("Error loading tracking data. Please check the console.");
-      }
+    console.error("🛑 THE ACTUAL BUG IS HERE:", error);
+    // Temporarily show the real error message in the alert popup
+    alert("System Crash: " + error.message); 
+}
     }
 
     // Trigger the function when the page loads
