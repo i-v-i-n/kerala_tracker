@@ -1532,46 +1532,44 @@
     });
   </script>
   <script>
-    async function loadTrackerData() {
+    async function initApp() {
         try {
-            // 1. Fetch the static promises
-            const promisesResponse = await fetch('./promises.json');
-            if (!promisesResponse.ok) throw new Error("promises.json missing");
-            const promisesList = await promisesResponse.json();
+            console.log("📡 Fetching databases...");
+            
+            // 1. Fetch the data
+            const pRes = await fetch('./promises.json');
+            const promisesList = await pRes.json();
 
-            // 2. Fetch the live updates database
             let liveUpdates = {};
             try {
-                const updatesResponse = await fetch('./updates.json');
-                if (updatesResponse.ok) {
-                    liveUpdates = await updatesResponse.json();
-                }
-            } catch (e) {
-                console.log("No updates database found yet.");
+                const uRes = await fetch('./updates.json');
+                if (uRes.ok) liveUpdates = await uRes.json();
+            } catch(e) { 
+                console.log("No live updates found."); 
             }
 
-            console.log("Successfully loaded data: " + promisesList.length + " promises found.");
+            // 2. Set the global variable EXACTLY as your old code expects
+            window.promisesData = promisesList;
+            
+            // Also save updates to the window so your UI can use it later
+            window.liveUpdatesData = liveUpdates; 
 
-            // 🛑 THE MAGIC LINK: Assign the data to your website's expected global variables
-            // (Change 'promises' or 'promisesData' to match whatever your original UI script used)
-            window.promises = promisesList; 
-            window.updates = liveUpdates;
+            console.log("✅ Data ready! Triggering UI build...");
 
-            // 3. RUN YOUR ORIGINAL DRAWING FUNCTIONS HERE
-            // Look through your HTML for the functions that originally drew the cards.
-            // They usually look something like this:
-            if (typeof renderCards === "function") renderCards();
-            if (typeof updateCounters === "function") updateCounters();
-            if (typeof initDashboard === "function") initDashboard();
+            // 3. NOW run your original rendering function!
+            if (typeof loadPromises === "function") {
+                loadPromises();
+            } else {
+                console.error("Could not find loadPromises function!");
+            }
 
         } catch (error) {
-            console.error("Database initialization failed:", error);
-            // This ensures we only alert if the ACTUAL fetch fails, not the UI layout
+            console.error("🛑 Critical Data Error:", error);
         }
     }
 
-    // Run the initialization
-    document.addEventListener("DOMContentLoaded", loadTrackerData);
+    // Trigger the fetch when the page loads
+    document.addEventListener("DOMContentLoaded", initApp);
 </script>
 </body>
 
