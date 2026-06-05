@@ -5,12 +5,14 @@ import re
 import json
 import requests
 import urllib3
+import time
 from bs4 import BeautifulSoup
 from pydantic import BaseModel, Field
 from google import genai
 from google.genai import types
 from playwright.sync_api import sync_playwright
 from datetime import datetime, timedelta
+
 
 # Disable SSL warnings (common necessity for gov.in domains)
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -235,7 +237,30 @@ def run_gazette_radar():
             subjects_for_ai += f"[{idx+1}] Dept: {g['department']} | Subject: {g['subject']}\n"
             
         print("🤖 Sending subjects to Gemini...")
-        json_result = analyze_subjects_with_gemini(subjects_for_ai, promises_list)
+        json_result = None
+        max_retries = 3
+        
+        for attempt in range(max_retries):
+            try:
+                json_result = analyze_subjects_with_gemini(subjects_for_ai, promises_list)
+                break  # If successful, break out of the retry loop!
+                
+            except Exception as e:
+                error_msg = str(e)
+                if "503" in error_msg or "UNAVAILABLE" in error_msg or "429" in error_msg:
+                    print(f"⚠️ Gemini API busy (Attempt {attempt + 1}/{max_retries}). Waiting 15 seconds...")
+                    time.sleep(15)
+                    if attempt == max_retries - 1:
+                        print("❌ Gemini API is completely jammed today. Shutting down gracefully.")
+                        return # Exit the function, try again tomorrow
+                else:
+                    # If it's a different kind of error, print it and stop
+                    print(f"❌ AI Analysis failed: {e}")
+                    return
+        
+        # If the loop finished but json_result is still None, something went wrong
+        if not json_result:
+            return
         
         result_dict = json.loads(json_result)
         if result_dict.get("match_found"):
