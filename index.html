@@ -1533,40 +1533,46 @@
   </script>
   <script>
     async function loadTrackerData() {
-      try {
-        // 1. Fetch the static promises list
-        const promisesResponse = await fetch('./promises.json');
-        if (!promisesResponse.ok) throw new Error("Could not find promises.json");
-        const promisesList = await promisesResponse.json();
-
-        // 2. Fetch the live updates (We use a secondary try/catch because updates.json might be empty or missing initially)
-        let liveUpdates = {};
         try {
-          const updatesResponse = await fetch('updates.json');
-          if (updatesResponse.ok) {
-            liveUpdates = await updatesResponse.json();
-          }
-        } catch (e) {
-          console.log("No updates.json found yet, defaulting to zero updates.");
+            // 1. Fetch the static promises
+            const promisesResponse = await fetch('./promises.json');
+            if (!promisesResponse.ok) throw new Error("promises.json missing");
+            const promisesList = await promisesResponse.json();
+
+            // 2. Fetch the live updates database
+            let liveUpdates = {};
+            try {
+                const updatesResponse = await fetch('./updates.json');
+                if (updatesResponse.ok) {
+                    liveUpdates = await updatesResponse.json();
+                }
+            } catch (e) {
+                console.log("No updates database found yet.");
+            }
+
+            console.log("Successfully loaded data: " + promisesList.length + " promises found.");
+
+            // 🛑 THE MAGIC LINK: Assign the data to your website's expected global variables
+            // (Change 'promises' or 'promisesData' to match whatever your original UI script used)
+            window.promises = promisesList; 
+            window.updates = liveUpdates;
+
+            // 3. RUN YOUR ORIGINAL DRAWING FUNCTIONS HERE
+            // Look through your HTML for the functions that originally drew the cards.
+            // They usually look something like this:
+            if (typeof renderCards === "function") renderCards();
+            if (typeof updateCounters === "function") updateCounters();
+            if (typeof initDashboard === "function") initDashboard();
+
+        } catch (error) {
+            console.error("Database initialization failed:", error);
+            // This ensures we only alert if the ACTUAL fetch fails, not the UI layout
         }
-
-        // 3. Update the UI
-        console.log("Successfully loaded data:", promisesList.length, "promises found.");
-
-        // ---> PUT YOUR HTML RENDERING LOGIC HERE <---
-        // Example: updateCounters(promisesList, liveUpdates);
-        // Example: renderCards(promisesList, liveUpdates);
-
-      } catch (error) {
-    console.error("🛑 THE ACTUAL BUG IS HERE:", error);
-    // Temporarily show the real error message in the alert popup
-    alert("System Crash: " + error.message); 
-}
     }
 
-    // Trigger the function when the page loads
+    // Run the initialization
     document.addEventListener("DOMContentLoaded", loadTrackerData);
-  </script>
+</script>
 </body>
 
 </html>
