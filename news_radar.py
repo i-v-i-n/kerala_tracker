@@ -1,13 +1,15 @@
 import os
 import re
 import json
+import time
 import requests
 import feedparser
+from datetime import datetime
 from bs4 import BeautifulSoup
 from pydantic import BaseModel, Field
+from typing import Optional
 from google import genai
 from google.genai import types
-
 
 def load_env_file(env_path=".env"):
     if not os.path.exists(env_path):
@@ -38,21 +40,13 @@ TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 client = genai.Client(api_key=GEMINI_API_KEY)
 
 # ==========================================
-# 2. RSS FEEDS — Google News via Inoreader
-#
-# Format:
-#   https://news.google.com/rss/search?q=QUERY&hl=en-IN&gl=IN&ceid=IN:en
-#
-# Replace the q= value with your actual search query.
-# Use + for spaces, quotes as %22 for exact phrases.
+# 2. RSS FEEDS — Google News / Media Feeds
 # ==========================================
 RSS_FEEDS = {
     # --- CORE GOVERNMENT ACTIVITY ---
     "core_cm_satheeshan": (
         "https://news.google.com/news/rss/search?q=%22Kerala%20government%22%20%22V%20D%20Satheeshan%22&hl=en"
     ),
-
-
     "core_udf_government": (
         "https://news.google.com/news/rss/search?q=%22UDF%20government%22%20Kerala&hl=en"
     ),
@@ -81,13 +75,11 @@ RSS_FEEDS = {
     "promise_ksrtc": (
         "https://news.google.com/news/rss/search?q=%22KSRTC%22%20Kerala%20pension%20salary&hl=ml-IN&gl=IN&ceid=IN:ml"
     ),
-
     "promise_rubber_msp": (
         "https://news.google.com/news/rss/search?q=%22rubber%22%20support%20price%20Kerala&hl=ml-IN&gl=IN&ceid=IN:ml"
     ),
 
     # --- WELFARE & COMMUNITY ---
-
     "promise_disability": (
         "https://news.google.com/news/rss/search?q=%22rubber%22%20support%20price%20Kerala&hl=ml-IN&gl=IN&ceid=IN:ml"
     ),
@@ -105,7 +97,6 @@ RSS_FEEDS = {
     "promise_ai_dept": (
         "https://news.google.com/news/rss/search?q=%22%20AI%20department%22%20Kerala&hl=ml-IN&gl=IN&ceid=IN:ml"
     ),
-
 
     # --- OFFICIAL SOURCES ---
     "source_pib_kerala": (
@@ -126,7 +117,6 @@ RSS_FEEDS = {
 
 # ==========================================
 # 3. DATA LOADING
-# Reads your promises.json directly.
 # ==========================================
 def load_promises():
     """Loads promises from promises.json and returns a condensed string for the AI."""
@@ -135,10 +125,9 @@ def load_promises():
         with open('promises.json', 'r', encoding='utf-8') as f:
             promises = json.load(f)
 
-        # Remove [cite: xxxx] artifacts
         condensed = ""
         for p in promises:
-            clean_promise = re.sub(r'\[cite:[^\]]+\]', '', p['promise']).strip()
+            clean_promise = re.sub(r'\]+\]', '', p['promise']).strip()
             condensed += f"{p['id']} | {p['category']} | {clean_promise}\n"
 
         print(f"✅ Loaded {len(promises)} promises.")
@@ -152,26 +141,29 @@ def load_promises():
         return ""
 
 # ==========================================
-# 4. AI SCHEMA
+# 4. UPGRADED AI SCHEMA
 # ==========================================
 class PromiseUpdate(BaseModel):
     match_found: bool = Field(
         description="True only if the article provides clear evidence of government action on a tracked promise."
     )
-    promise_id: str = Field(
-        description="The ID of the matched promise e.g. UDF-004. Empty string if no match."
+    promise_id: Optional[str] = Field(
+        default="", description="The ID of the matched promise e.g. UDF-004. Empty string if no match."
     )
-    proposed_status: str = Field(
-        description="Must be exactly one of: 'In Progress', 'Fulfilled', 'Evaded'. Empty string if no match."
+    proposed_status: Optional[str] = Field(
+        default="", description="Must be exactly one of: 'In Progress', 'Fulfilled', 'Evaded'. Empty string if no match."
     )
-    date_of_update: str = Field(
-        description="Date of the event in DD MMM YYYY format. Empty string if no match."
+    date_of_update: Optional[str] = Field(
+        default="", description="Date of the event in DD MMM YYYY format. Empty string if no match."
     )
-    update_description: str = Field(
-        description="1-2 sentence factual summary of what happened. Empty string if no match."
+    source_name: Optional[str] = Field(
+        default="", description="The exact name of the news publication (e.g., 'THE HINDU', 'MATHRUBHUMI', 'MANORAMA'). Empty string if no match."
     )
-    source_quality: str = Field(
-        description=(
+    summary: Optional[str] = Field(
+        default="", description="A clean, objective 2-4 sentence summary paragraph explaining the actions, figures, and context for the interactive ledger timeline. Empty string if no match."
+    )
+    source_quality: Optional[str] = Field(
+        default="", description=(
             "Rate the source quality: "
             "'Tier1' (Gazette/GO), "
             "'Tier2' (Cabinet press release), "
@@ -186,7 +178,6 @@ class PromiseUpdate(BaseModel):
 # ==========================================
 def scrape_article_text(url):
     try:
-        # allow_redirects=True is crucial for Google News links
         headers = {'User-Agent': 'Mozilla/5.0'}
         response = requests.get(url, headers=headers, timeout=15, allow_redirects=True)
         soup = BeautifulSoup(response.content, 'html.parser')
@@ -198,11 +189,10 @@ def scrape_article_text(url):
         return None
 
 # ==========================================
-# 6. AI ANALYSIS
+# 6. RESILIENT AI ANALYSIS WITH RETRIES
 # ==========================================
 def analyze_with_gemini(article_text, feed_category, promises_list):
-    """Sends article text to Gemini and gets a structured promise match result."""
-    prompt =f"""
+    prompt = f"""
     You are a political analyst monitoring the Kerala UDF government's performance against their manifesto.
 
     CONTEXT: This article came from a feed tracking '{feed_category}'.
@@ -211,7 +201,7 @@ def analyze_with_gemini(article_text, feed_category, promises_list):
     Identify any news that signals meaningful government movement on the tracked promises. 
     You are looking for reports of administrative work, departmental initiatives, budget allocations, or formal declarations of policy.
 
-    GUIDELINES:
+    GUIDELINES FOR UPDATES:
     - "In Progress": The government has announced a plan, initiated a pilot project, or started administrative groundwork. (Includes official statements from Ministers or Cabinet).
     - "Fulfilled": Official Government Orders (GOs), passed bills, or confirmed on-ground implementation. 
     - "Evaded": Clear evidence that a promise has been deprioritized or countered by government action.
@@ -226,18 +216,38 @@ def analyze_with_gemini(article_text, feed_category, promises_list):
     Analyze the article. If it indicates significant movement or intent toward a promise, set 'match_found' to true. 
     Do not be overly restrictive—if the source is a credible news outlet reporting on government activity, include it.
     If no relevant movement is mentioned, set 'match_found' to false.
+
+    IF A MATCH IS FOUND:
+    1. Identify the exact 'promise_id' from the list.
+    2. Set 'proposed_status' based on the guidelines above.
+    3. Identify the 'source_name' (e.g., "The Hindu", "Mathrubhumi", "Manorama").
+    4. Write a 'summary'. This must be a clean, objective paragraph (2-4 sentences) written in English summarizing the development, the specific actions taken by the government, and the numbers/details involved. Write it in the present perfect or past tense, suitable for a public timeline ledger. Do not mention the AI itself in the summary.
     """
 
-    response = client.models.generate_content(
-        model='gemini-2.5-flash',
-        contents=prompt,
-        config=types.GenerateContentConfig(
-            response_mime_type="application/json",
-            response_schema=PromiseUpdate,
-            temperature=0.1
-        )
-    )
-    return response.text
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            response = client.models.generate_content(
+                model='gemini-2.5-flash',
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    response_schema=PromiseUpdate,
+                    temperature=0.1
+                )
+            )
+            return response.text
+        except Exception as e:
+            error_msg = str(e)
+            if "503" in error_msg or "UNAVAILABLE" in error_msg or "429" in error_msg:
+                print(f"  ⚠️  Gemini API busy (Attempt {attempt + 1}/{max_retries}). Retrying in 15 seconds...")
+                time.sleep(15)
+            else:
+                print(f"  ❌ Gemini execution failed unexpectedly: {e}")
+                raise e
+
+    # Fallback response structure if completely jammed
+    return json.dumps({"match_found": False})
 
 # ==========================================
 # 7. TELEGRAM NOTIFICATION
@@ -275,8 +285,7 @@ def send_telegram_alert(promise_id, status, description, source_url, source_qual
         print(f"  ⚠️  Telegram failed: {e}")
 
 # ==========================================
-# 8. SEEN ARTICLES CACHE
-# Prevents the same article being analyzed twice.
+# 8. DATA PERSISTENCE & CACHING
 # ==========================================
 CACHE_FILE = "seen_articles.json"
 
@@ -290,6 +299,40 @@ def load_seen():
 def save_seen(seen):
     with open(CACHE_FILE, 'w') as f:
         json.dump(list(seen), f)
+
+def log_promise_update(promise_id, summary, title, url, source_name="THE HINDU"):
+    """Saves a rich news update with a summary and styled source badge."""
+    file_path = "updates.json"
+    
+    if os.path.exists(file_path):
+        with open(file_path, 'r', encoding='utf-8') as f:
+            updates_db = json.load(f)
+    else:
+        updates_db = {}
+
+    pid_str = str(promise_id)
+    if pid_str not in updates_db:
+        updates_db[pid_str] = []
+
+    for entry in updates_db[pid_str]:
+        if entry.get("url") == url:
+            print(f"  -> Update link already posted for Promise {promise_id}. Skipping.")
+            return
+
+    formatted_date = datetime.now().strftime("%b %d, %Y")
+    
+    new_update = {
+        "date": formatted_date,
+        "summary": summary,
+        "source_name": source_name.upper().strip() if source_name else "THE HINDU",
+        "url": url
+    }
+
+    updates_db[pid_str].append(new_update)
+    
+    with open(file_path, 'w', encoding='utf-8') as f:
+        json.dump(updates_db, f, indent=4)
+    print(f"💾 Cleanly logged Timeline Update to database for Promise {promise_id}!")
 
 # ==========================================
 # 9. MAIN RADAR LOOP
@@ -320,7 +363,6 @@ def run_radar():
             article_url = article.get('link', '')
             article_title = article.get('title', 'No title')
 
-            # Skip if already seen
             if article_url in seen_articles:
                 print(f"  ⏭  Already seen: {article_title[:60]}")
                 continue
@@ -338,7 +380,6 @@ def run_radar():
                 result = json.loads(json_result)
 
                 if result.get("match_found"):
-                    # Skip if source quality is insufficient
                     if result.get("source_quality") == "Insufficient":
                         print(f"  ⚠️  Match found but source quality insufficient — skipping.")
                         seen_articles.add(article_url)
@@ -347,22 +388,32 @@ def run_radar():
                     print(f"\n  ✅ MATCH: {result['promise_id']}")
                     print(f"     Status:  {result['proposed_status']}")
                     print(f"     Quality: {result['source_quality']}")
-                    print(f"     Note:    {result['update_description']}")
+                    print(f"     Summary: {result['summary']}")
 
                     new_matches.append({
                         "promise_id":   result['promise_id'],
                         "status":       result['proposed_status'],
-                        "description":  result['update_description'],
+                        "description":  result['summary'],
                         "date":         result['date_of_update'],
                         "source_url":   article_url,
                         "source_quality": result['source_quality'],
                         "feed":         category,
                     })
 
+                    # ── WIRED TO FRONTEND ──
+                    # Logs directly into updates.json for your timeline engine to render
+                    log_promise_update(
+                        promise_id=result['promise_id'],
+                        summary=result['summary'],
+                        title=article_title,
+                        url=article_url,
+                        source_name=result.get('source_name', 'THE HINDU')
+                    )
+
                     send_telegram_alert(
                         promise_id=result['promise_id'],
                         status=result['proposed_status'],
-                        description=result['update_description'],
+                        description=result['summary'],
                         source_url=article_url,
                         source_quality=result['source_quality']
                     )
@@ -374,10 +425,9 @@ def run_radar():
 
             seen_articles.add(article_url)
 
-    # Save cache
     save_seen(seen_articles)
 
-    # Save matches log
+    # Save tracking matches log backup
     if new_matches:
         log_file = "matches_log.json"
         existing = []
